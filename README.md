@@ -3,7 +3,7 @@ Our project for [Ludum Dare 49](https://ldjam.com/).
 
 # Conventions
 ## Folder and Project structure
-The project is split into seperate modular features and themes in folders.
+The project is split into separate modular features and themes in folders.
 
 The folder and scene file names are written in `UpperCamelCase` and in singular form, whereas the script file names and assets are named in `snake_case`.
 
@@ -56,7 +56,7 @@ godot
 
 ## Branching
 New branches follow the following conventions:
-- If a new feature starts developments we create a new branch which starts with the prefix `dev-` and the English feature name in `kebab-case`
+- If a new feature starts development we create a new branch which starts with the prefix `dev-` and the English feature name in `kebab-case`
 - **Examples:** `dev-main-menu` or `dev-dragon-monster`
 
 ## Commits
