@@ -21,7 +21,7 @@ func map_subtitles_to_animation(subtitles_json):
 	current_animation.track_set_path(method_track_index, animation_player.get_path())
 
 	current_animation.length = duration
-	
+
 	for interval in subtitles_dict:
 		assert("start" in interval)
 		assert("end" in interval)
@@ -45,12 +45,18 @@ func _subtitles_duration():
 	return float(last_interval["end"])
 
 func _set_text_start_animation(time : float, text : String):
+	if not current_animation:
+		return
+
 	current_animation.track_insert_key(method_track_index, time, 
 									{	"method" : "emit_signal" , 
 										"args" : ["text_started", text]
 									})
 
 func _set_text_end_animation(time : float, text : String):
+	if not current_animation:
+		return
+		
 	current_animation.track_insert_key(method_track_index, time, 
 									{	"method" : "emit_signal" , 
 										"args" : ["text_ended", text]
