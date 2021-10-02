@@ -52,7 +52,6 @@ for i in range(0, len(srt_lines), 4):
     text = section_lines[2].strip()
 
     list_.append({
-        "index": index,
         "start": srt_timestamp_to_timedelta(start_time).total_seconds(),
         "end": srt_timestamp_to_timedelta(end_time).total_seconds(),
         "text": text
