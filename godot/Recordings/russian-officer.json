@@ -1,0 +1,32 @@
+[
+  {
+    "index": 1,
+    "start": "0.720",
+    "end": "1.440",
+    "text": "Second Chief"
+  },
+  {
+    "index": 2,
+    "start": "1.440",
+    "end": "2.560",
+    "text": "Directorate Sergei,"
+  },
+  {
+    "index": 3,
+    "start": "2.560",
+    "end": "2.880",
+    "text": "what are"
+  },
+  {
+    "index": 4,
+    "start": "2.880",
+    "end": "3.600",
+    "text": "you doing?"
+  },
+  {
+    "index": 5,
+    "start": "3.600",
+    "end": "4.400",
+    "text": "Slacking off??"
+  }
+]

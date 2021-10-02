@@ -1,22 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://ControlPanel/control-panel.gd" type="Script" id=1]
 [ext_resource path="res://ControlPanel/subtitles-label.gd" type="Script" id=2]
 [ext_resource path="res://Recordings/json-file-parser.gd" type="Script" id=3]
-
-[sub_resource type="Animation" id=1]
-resource_name = "Subtitles"
-tracks/0/type = "method"
-tracks/0/path = NodePath(".")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray(  ),
-"transitions": PoolRealArray(  ),
-"values": [  ]
-}
 
 [node name="ControlPanel" type="Control"]
 anchor_right = 1.0
@@ -25,6 +11,7 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+filename_subtitles = "russian-officer"
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchor_right = 1.0
@@ -43,7 +30,6 @@ margin_bottom = 580.0
 script = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MarginContainer/SubtitlesLabel"]
-anims/Subtitles = SubResource( 1 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
