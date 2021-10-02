@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://ControlPanel/control-panel.gd" type="Script" id=1]
-[ext_resource path="res://ControlPanel/subtitles-label.gd" type="Script" id=2]
+[ext_resource path="res://ControlPanel/subtitle-label.gd" type="Script" id=2]
 [ext_resource path="res://Recordings/json-file-parser.gd" type="Script" id=3]
 [ext_resource path="res://ControlPanel/subtitle-animation-player.gd" type="Script" id=4]
 
@@ -26,14 +26,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="SubtitlesLabel" type="RichTextLabel" parent="MarginContainer"]
+[node name="SubtitleLabel" type="RichTextLabel" parent="MarginContainer"]
 margin_top = 380.0
 margin_right = 984.0
 margin_bottom = 580.0
 bbcode_enabled = true
 script = ExtResource( 2 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="MarginContainer/SubtitlesLabel"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MarginContainer/SubtitleLabel"]
 script = ExtResource( 4 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
