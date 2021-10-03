@@ -1,9 +1,13 @@
 extends RichTextLabel
 
+signal text_started
+signal text_ended(elapsed_time)
+
 var subtitles_dict : Array = []
 var animation_name : String = "Subtitles"
 var current_animation : Animation = null
-var method_track_index : int = 0
+var method_track_index_start : int = 0
+var method_track_index_end : int = 1
 
 onready var animation_player = get_node("AnimationPlayer")
 
@@ -17,8 +21,10 @@ func map_subtitles_to_animation(subtitles_json):
 	var duration = _subtitles_duration()
 	current_animation = Animation.new()
 	
-	method_track_index = current_animation.add_track(Animation.TYPE_METHOD)
-	current_animation.track_set_path(method_track_index, animation_player.get_path())
+	method_track_index_start = current_animation.add_track(Animation.TYPE_METHOD)
+	method_track_index_end = current_animation.add_track(Animation.TYPE_METHOD)
+	current_animation.track_set_path(method_track_index_start, animation_player.get_path())
+	current_animation.track_set_path(method_track_index_end, animation_player.get_path())
 
 	current_animation.length = duration
 
@@ -48,7 +54,7 @@ func _set_text_start_animation(index):
 	if not current_animation:
 		return
 
-	current_animation.track_insert_key(method_track_index, subtitles_dict[index]["start"], 
+	current_animation.track_insert_key(method_track_index_start, subtitles_dict[index]["start"], 
 									{	"method" : "emit_signal" , 
 										"args" : ["text_started", index]
 									})
@@ -57,16 +63,17 @@ func _set_text_end_animation(index):
 	if not current_animation:
 		return
 		
-	current_animation.track_insert_key(method_track_index, subtitles_dict[index]["end"], 
+	current_animation.track_insert_key(method_track_index_end, subtitles_dict[index]["end"], 
 									{	"method" : "emit_signal" , 
 										"args" : ["text_ended", index]
 									})
 
 func _on_text_started(index : int):
 	_render_text(index)
+	emit_signal("text_started", index)
 
 func _on_text_ended(index : int):
-	pass
+	emit_signal("text_ended", index)
 
 func _render_text(current_index : int = -1):
 	var line = ""
@@ -81,4 +88,4 @@ func _render_text(current_index : int = -1):
 			text_element = subtitles_dict[index]["text"]
 		line = line + " " + text_element
 
-	self.bbcode_text = line
+	self.bbcode_text = subtitles_dict[current_index]["text"]
