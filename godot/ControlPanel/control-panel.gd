@@ -72,9 +72,7 @@ func _on_CensorButton_down():
 		return
 	if subtitles["timing"][last_index]["status"] == "running":
 		subtitles["timing"][last_index]["last_pressed"] = OS.get_ticks_msec()
-		_set_start_cursor(last_index)
-	subtitles_container.censor_button_pressed = true
-	
+		_set_start_cursor(last_index)	
 
 func _on_CensorButton_up():
 	censor_button_down = false
@@ -84,7 +82,6 @@ func _on_CensorButton_up():
 		subtitles["timing"][last_index]["time_pressed"] = subtitles["timing"][last_index]["time_pressed"] \
 												+ OS.get_ticks_msec() - subtitles["timing"][last_index]["last_pressed"]
 		_set_end_cursor(last_index)
-	subtitles_container.censor_button_pressed = false
 	
 func _on_text_started(index):
 	last_index = index
@@ -106,7 +103,6 @@ func _on_text_ended(index):
 	var coverage = round(subtitles["timing"][index]["time_pressed"] \
 						/ ((subtitles["timing"][index]["end"] - subtitles["timing"][index]["start"]) * 100)) * 10
 
-	print(subtitles["timing"][index])
 	emit_signal("text_ended", subtitles["timing"][index])
 
 func _set_start_cursor(index: int) -> void:
@@ -117,7 +113,7 @@ func _set_start_cursor(index: int) -> void:
 		subtitles["timing"][index]["censor_intervals"] = [censor_interval]
 	else:
 		subtitles["timing"][index]["censor_intervals"].append(censor_interval)
-	
+	subtitles_container.update_censored_intervals(index, subtitles["timing"][index]["censor_intervals"])
 func _set_end_cursor(index: int) -> void:
 	var cursor_position = subtitles_container.last_cursor_position
 	
@@ -126,3 +122,4 @@ func _set_end_cursor(index: int) -> void:
 	
 	subtitles["timing"][index]["censor_intervals"][-1]["end_position"] \
 		= cursor_position
+	subtitles_container.update_censored_intervals(index, subtitles["timing"][index]["censor_intervals"])
