@@ -60,7 +60,6 @@ func _on_text_ended(index):
 	if censor_button_down:
 		subtitles[index]["time_pressed"] = subtitles[index]["time_pressed"] \
 												+ OS.get_ticks_msec()- subtitles[index]["last_pressed"]
-		
-
+	
 	var coverage = round(subtitles[index]["time_pressed"] \
 						/ ((subtitles[index]["end"] - subtitles[index]["start"]) * 100)) * 10
