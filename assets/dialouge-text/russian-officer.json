@@ -47,16 +47,33 @@
   },
   "information": {
     "food-name": {
+      "barrier": 80,
       "message": "Leaked the name of the lunch",
-      "penalty": 500
+      "penalty": 4
     },
     "food-quality": {
+      "barrier": 85,
       "message": "Leaked the quality of the lunch",
-      "penalty": 200
+      "penalty": 2
     },
     "food-ingredient": {
+      "barrier": 80,
       "message": "Leaked an ingredient of the lunch",
-      "penalty": 400
+      "penalty": 3
+    },
+    "food-leaked": {
+      "message": "Leaked all there was to know about the lunch",
+      "penalty": 10,
+      "requires": [
+        "food-name",
+        "food-quality",
+        "food-ingredient"
+      ],
+      "replaces": [
+        "food-name",
+        "food-quality",
+        "food-ingredient"
+      ]
     }
   },
   "timing": [
