@@ -41,17 +41,46 @@ margin_right = 984.0
 margin_bottom = 64.0
 texture_normal = ExtResource( 5 )
 
-[node name="SubtitleLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+[node name="SubtitlesContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
 margin_top = 68.0
 margin_right = 984.0
 margin_bottom = 580.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MarginContainer/VBoxContainer/SubtitlesContainer"]
+script = ExtResource( 4 )
+
+[node name="Line1" type="RichTextLabel" parent="MarginContainer/VBoxContainer/SubtitlesContainer"]
+margin_right = 984.0
+margin_bottom = 168.0
 size_flags_vertical = 3
 custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
-script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="MarginContainer/VBoxContainer/SubtitleLabel"]
-script = ExtResource( 4 )
+[node name="Line2" type="RichTextLabel" parent="MarginContainer/VBoxContainer/SubtitlesContainer"]
+margin_top = 172.0
+margin_right = 984.0
+margin_bottom = 340.0
+size_flags_vertical = 3
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Line3" type="RichTextLabel" parent="MarginContainer/VBoxContainer/SubtitlesContainer"]
+margin_top = 344.0
+margin_right = 984.0
+margin_bottom = 512.0
+size_flags_vertical = 3
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 

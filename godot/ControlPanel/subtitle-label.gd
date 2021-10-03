@@ -1,4 +1,4 @@
-extends RichTextLabel
+extends VBoxContainer
 
 signal text_started
 signal text_ended(elapsed_time)
@@ -14,17 +14,17 @@ var next_lines: String = ""
 
 onready var animation_player = get_node("AnimationPlayer")
 
-export(int) var upcoming_lines_showing = 2
+onready var lines = [get_node("Line1"), get_node("Line2"), get_node("Line3")]
 
 func _ready():
 	animation_player.connect("text_started", self, "_on_text_started")
 	animation_player.connect("text_ended", self, "_on_text_ended")
 
 func _process(delta):
-	_render_text(current_index)
+	_render_text()
 
 func map_subtitles_to_animation(subtitles_json):
-	subtitles_dict = subtitles_json
+	subtitles_dict = subtitles_json["timing"]
 
 	var duration = _subtitles_duration()
 	current_animation = Animation.new()
@@ -80,57 +80,43 @@ func _on_text_started(index : int):
 	current_index = index
 	if current_segment_id != subtitles_dict[index]["segment"]:
 		current_segment_id = subtitles_dict[index]["segment"]
-		_create_upcoming_lines(index)
-	_render_text(index)
+		_create_upcoming_lines()
 	emit_signal("text_started", index)
 
 func _on_text_ended(index : int):
 	emit_signal("text_ended", index)
 
-func _create_upcoming_lines(current_index: int):
-	var current_segment_id = subtitles_dict[current_index]["segment"]
-	next_lines = ""
-	
+func _create_upcoming_lines():
 	var index = current_index
 	
 	# Find the first index of the next segment
-	while 	index < subtitles_dict.size() and \
-			subtitles_dict[index]["segment"] == current_segment_id:
+	while 	(index < subtitles_dict.size()) and \
+			(subtitles_dict[index]["segment"] == current_segment_id):
 		index += 1
 	
 	# Reached end of text?
 	if index >= subtitles_dict.size():
 		return
 	
-	for line_index in range(upcoming_lines_showing):
+	for line_index in range(1,3):
 		var line = ""
 		while 	index < subtitles_dict.size() and \
 				subtitles_dict[index]["segment"] == current_segment_id + line_index + 1:
-				line += subtitles_dict[index]["text"] + " "
+				
+				line = PoolStringArray([line, subtitles_dict[index]["text"]]).join(" ")
 				index += 1
-		
-		# Reached end of text?
-		if index >= subtitles_dict.size():
-			next_lines += line
-			return
-		else:
-			next_lines += line + "\n"
+				
+		lines[line_index].bbcode_text = line
 
 
-func _render_text(current_index):
-	self.bbcode_text = ""
-
+func _render_text():
 	var share = min(((animation_player.current_animation_position - subtitles_dict[current_index]["start"]) \
 				/ (subtitles_dict[current_index]["end"] - subtitles_dict[current_index]["start"])),
 					1.0)
 
-	self.bbcode_text = _create_current_line(current_index, share)
-	
-	self.bbcode_text += "\n" + next_lines
+	lines[0].bbcode_text = _create_current_line(share)
 
-func _create_current_line(current_index : int, share : float):
-	var current_segment_id = subtitles_dict[current_index]["segment"]
-	
+func _create_current_line(share : float):
 	var line = ""
 	var index = current_index - 1
 
