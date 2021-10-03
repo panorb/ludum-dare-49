@@ -1,0 +1,1196 @@
+{
+  "chapter": {
+    "beginning": {
+      "start": 0.00,
+      "end": 54.00
+    },
+    "instructions": {
+      "start": 13.728,
+      "end": 54.00
+    },
+    "repeat": {
+      "start": 55.00,
+      "end": 66.01
+    },
+    "example": {
+      "start": 72.23,
+      "end": 98.4
+    },
+    "example-success": {
+      "start": 100.2,
+      "end": 111.84
+    },
+    "example-failure": {
+      "start": 113.23,
+      "end": 129.3
+    },
+    "good-luck": {
+      "start": 130.7,
+      "end": 123.2
+    },
+    "ending-good": {
+      "start": 156.4,
+      "end": 163.8
+    },
+    "ending-neutral": {
+      "start": 143.95,
+      "end": 154.9
+    },
+    "ending-bad": {
+      "start": 134.46,
+      "end": 142.0
+    },
+    "ending-wtf": {
+      "start": 165.683,
+      "end": 179.1
+    }
+  },
+  "information": {
+    "food-name": {
+      "message": "Leaked the name of the lunch",
+      "penalty": 500
+    },
+    "food-quality": {
+      "message": "Leaked the quality of the lunch",
+      "penalty": 200
+    },
+    "food-ingredient": {
+      "message": "Leaked an ingredient of the lunch",
+      "penalty": 400
+    }
+  },
+  "timing": [
+    {
+      "start": 0.17,
+      "end": 0.67,
+      "text": "Second Chief",
+      "segment": 1
+    },
+    {
+      "start": 0.67,
+      "end": 1.329,
+      "text": "Directorate",
+      "segment": 1
+    },
+    {
+      "start": 1.329,
+      "end": 2.329,
+      "text": "Sergei,",
+      "segment": 1
+    },
+    {
+      "start": 2.409,
+      "end": 2.909,
+      "text": "what are",
+      "segment": 1
+    },
+    {
+      "start": 2.909,
+      "end": 3.612,
+      "text": "you doing?",
+      "segment": 1
+    },
+    {
+      "start": 3.999,
+      "end": 4.816,
+      "text": "Slacking off??",
+      "segment": 2
+    },
+    {
+      "start": 6.87,
+      "end": 7.37,
+      "text": "If you",
+      "segment": 3
+    },
+    {
+      "start": 7.37,
+      "end": 8.039,
+      "text": "have nothing",
+      "segment": 3
+    },
+    {
+      "start": 8.039,
+      "end": 8.558,
+      "text": "to do,",
+      "segment": 3
+    },
+    {
+      "start": 8.558,
+      "end": 9.066,
+      "text": "then get",
+      "segment": 3
+    },
+    {
+      "start": 9.066,
+      "end": 9.566,
+      "text": "to the",
+      "segment": 3
+    },
+    {
+      "start": 9.566,
+      "end": 10.474,
+      "text": "control panel",
+      "segment": 3
+    },
+    {
+      "start": 10.588,
+      "end": 11.326,
+      "text": "and start",
+      "segment": 3
+    },
+    {
+      "start": 11.326,
+      "end": 12.457,
+      "text": "the counter-intelligence",
+      "segment": 3
+    },
+    {
+      "start": 12.457,
+      "end": 13.177,
+      "text": "measure!",
+      "segment": 3
+    },
+    {
+      "start": 13.728,
+      "end": 14.228,
+      "text": "I've",
+      "segment": 4
+    },
+    {
+      "start": 14.228,
+      "end": 15.0,
+      "text": "just received",
+      "segment": 4
+    },
+    {
+      "start": 15.0,
+      "end": 16.045,
+      "text": "word, that",
+      "segment": 4
+    },
+    {
+      "start": 16.045,
+      "end": 17.045,
+      "text": "an unidentified",
+      "segment": 4
+    },
+    {
+      "start": 17.045,
+      "end": 17.923,
+      "text": "American spy",
+      "segment": 4
+    },
+    {
+      "start": 17.923,
+      "end": 18.545,
+      "text": "in our",
+      "segment": 4
+    },
+    {
+      "start": 18.545,
+      "end": 19.277,
+      "text": "ranks is",
+      "segment": 4
+    },
+    {
+      "start": 19.277,
+      "end": 19.823,
+      "text": "trying to",
+      "segment": 4
+    },
+    {
+      "start": 19.823,
+      "end": 20.823,
+      "text": "pass information",
+      "segment": 4
+    },
+    {
+      "start": 20.823,
+      "end": 21.323,
+      "text": "to the",
+      "segment": 4
+    },
+    {
+      "start": 21.323,
+      "end": 22.0,
+      "text": "Americans.",
+      "segment": 4
+    },
+    {
+      "start": 22.36,
+      "end": 22.958,
+      "text": "Thankfully,",
+      "segment": 5
+    },
+    {
+      "start": 22.958,
+      "end": 24.0,
+      "text": "his connection",
+      "segment": 5
+    },
+    {
+      "start": 24.0,
+      "end": 25.159,
+      "text": "is unstable,",
+      "segment": 5
+    },
+    {
+      "start": 25.403,
+      "end": 25.903,
+      "text": "so a",
+      "segment": 5
+    },
+    {
+      "start": 25.903,
+      "end": 26.461,
+      "text": "bit of",
+      "segment": 5
+    },
+    {
+      "start": 26.461,
+      "end": 27.557,
+      "text": "signal interference",
+      "segment": 5
+    },
+    {
+      "start": 27.609,
+      "end": 28.146,
+      "text": "should do",
+      "segment": 5
+    },
+    {
+      "start": 28.146,
+      "end": 28.797,
+      "text": "the job.",
+      "segment": 5
+    },
+    {
+      "start": 29.373,
+      "end": 30.222,
+      "text": "Just press",
+      "segment": 6
+    },
+    {
+      "start": 30.222,
+      "end": 30.722,
+      "text": "the big",
+      "segment": 6
+    },
+    {
+      "start": 30.722,
+      "end": 31.222,
+      "text": "button in",
+      "segment": 6
+    },
+    {
+      "start": 31.222,
+      "end": 31.724,
+      "text": "front of",
+      "segment": 6
+    },
+    {
+      "start": 31.724,
+      "end": 32.41,
+      "text": "you if",
+      "segment": 6
+    },
+    {
+      "start": 32.41,
+      "end": 32.91,
+      "text": "he says",
+      "segment": 6
+    },
+    {
+      "start": 32.91,
+      "end": 33.639,
+      "text": "something that",
+      "segment": 6
+    },
+    {
+      "start": 33.639,
+      "end": 34.167,
+      "text": "better be",
+      "segment": 6
+    },
+    {
+      "start": 34.167,
+      "end": 34.721,
+      "text": "left a",
+      "segment": 6
+    },
+    {
+      "start": 34.721,
+      "end": 35.25,
+      "text": "secret of",
+      "segment": 6
+    },
+    {
+      "start": 35.25,
+      "end": 36.721,
+      "text": "our institution.",
+      "segment": 6
+    },
+    {
+      "start": 37.317,
+      "end": 37.889,
+      "text": "But don't",
+      "segment": 7
+    },
+    {
+      "start": 37.889,
+      "end": 38.662,
+      "text": "overdo it,",
+      "segment": 7
+    },
+    {
+      "start": 38.854,
+      "end": 39.54,
+      "text": "our power",
+      "segment": 7
+    },
+    {
+      "start": 39.54,
+      "end": 40.04,
+      "text": "grid is",
+      "segment": 7
+    },
+    {
+      "start": 40.04,
+      "end": 40.54,
+      "text": "weak,",
+      "segment": 7
+    },
+    {
+      "start": 40.763,
+      "end": 41.263,
+      "text": "and we can",
+      "segment": 7
+    },
+    {
+      "start": 41.263,
+      "end": 41.897,
+      "text": "only do",
+      "segment": 7
+    },
+    {
+      "start": 41.897,
+      "end": 42.556,
+      "text": "as much",
+      "segment": 7
+    },
+    {
+      "start": 42.556,
+      "end": 43.056,
+      "text": "interference",
+      "segment": 7
+    },
+    {
+      "start": 43.056,
+      "end": 43.723,
+      "text": "as we have",
+      "segment": 7
+    },
+    {
+      "start": 43.723,
+      "end": 44.295,
+      "text": "energy in",
+      "segment": 7
+    },
+    {
+      "start": 44.295,
+      "end": 45.601,
+      "text": "our batteries.",
+      "segment": 7
+    },
+    {
+      "start": 46.064,
+      "end": 46.564,
+      "text": "If you",
+      "segment": 8
+    },
+    {
+      "start": 46.564,
+      "end": 47.136,
+      "text": "run out,",
+      "segment": 8
+    },
+    {
+      "start": 47.313,
+      "end": 47.832,
+      "text": "you will",
+      "segment": 8
+    },
+    {
+      "start": 47.832,
+      "end": 48.332,
+      "text": "have to",
+      "segment": 8
+    },
+    {
+      "start": 48.332,
+      "end": 48.832,
+      "text": "wait for it",
+      "segment": 8
+    },
+    {
+      "start": 48.832,
+      "end": 50.004,
+      "text": "to slowly recharge",
+      "segment": 8
+    },
+    {
+      "start": 50.004,
+      "end": 50.611,
+      "text": "again.",
+      "segment": 8
+    },
+    {
+      "start": 53.007,
+      "end": 53.85,
+      "text": "Understood?",
+      "segment": 9
+    },
+    {
+      "start": 56.213,
+      "end": 57.056,
+      "text": "Alright,",
+      "segment": 10
+    },
+    {
+      "start": 57.056,
+      "end": 57.802,
+      "text": "I will repeat",
+      "segment": 10
+    },
+    {
+      "start": 57.802,
+      "end": 58.302,
+      "text": "it...",
+      "segment": 10
+    },
+    {
+      "start": 61.431,
+      "end": 62.141,
+      "text": "I will now,",
+      "segment": 11
+    },
+    {
+      "start": 62.141,
+      "end": 62.641,
+      "text": "make a",
+      "segment": 11
+    },
+    {
+      "start": 62.641,
+      "end": 63.246,
+      "text": "quick call",
+      "segment": 11
+    },
+    {
+      "start": 63.302,
+      "end": 63.802,
+      "text": "for you",
+      "segment": 11
+    },
+    {
+      "start": 63.802,
+      "end": 64.302,
+      "text": "to test",
+      "segment": 11
+    },
+    {
+      "start": 64.302,
+      "end": 64.802,
+      "text": "it out.",
+      "segment": 11
+    },
+    {
+      "start": 65.038,
+      "end": 65.756,
+      "text": "Censor the",
+      "segment": 12
+    },
+    {
+      "start": 65.756,
+      "end": 66.302,
+      "text": "part, where",
+      "segment": 12
+    },
+    {
+      "start": 66.302,
+      "end": 66.865,
+      "text": "I spill",
+      "segment": 12
+    },
+    {
+      "start": 66.865,
+      "end": 68.083,
+      "text": "critical intelligence",
+      "segment": 12
+    },
+    {
+      "start": 68.083,
+      "end": 68.682,
+      "text": "about my",
+      "segment": 12
+    },
+    {
+      "start": 68.682,
+      "end": 69.831,
+      "text": "lunch today.",
+      "segment": 12
+    },
+    {
+      "start": 72.49,
+      "end": 73.095,
+      "text": "Anya,",
+      "segment": 13
+    },
+    {
+      "start": 73.306,
+      "end": 74.402,
+      "text": "my beautiful wife.",
+      "segment": 13
+    },
+    {
+      "start": 74.787,
+      "end": 75.287,
+      "text": "How are",
+      "segment": 14
+    },
+    {
+      "start": 75.287,
+      "end": 75.787,
+      "text": "you doing",
+      "segment": 14
+    },
+    {
+      "start": 75.787,
+      "end": 76.287,
+      "text": "today?",
+      "segment": 14
+    },
+    {
+      "start": 76.71,
+      "end": 77.271,
+      "text": "Did you meet",
+      "segment": 15
+    },
+    {
+      "start": 77.271,
+      "end": 77.771,
+      "text": "the new",
+      "segment": 15
+    },
+    {
+      "start": 77.771,
+      "end": 78.527,
+      "text": "neighbors?",
+      "segment": 15
+    },
+    {
+      "start": 79.171,
+      "end": 79.671,
+      "text": "Oh",
+      "segment": 16
+    },
+    {
+      "start": 79.671,
+      "end": 80.184,
+      "text": "my day",
+      "segment": 16
+    },
+    {
+      "start": 80.184,
+      "end": 80.783,
+      "text": "was good",
+      "segment": 16
+    },
+    {
+      "start": 80.783,
+      "end": 81.431,
+      "text": "so far,",
+      "segment": 16
+    },
+    {
+      "start": 81.623,
+      "end": 82.123,
+      "text": "I mean...",
+      "segment": 16
+    },
+    {
+      "start": 82.263,
+      "end": 82.763,
+      "text": "except for",
+      "segment": 17
+    },
+    {
+      "start": 82.763,
+      "end": 83.422,
+      "text": "the food...",
+      "segment": 17,
+      "information": "food-quality"
+    },
+    {
+      "start": 83.631,
+      "end": 84.271,
+      "text": "I had a",
+      "segment": 18
+    },
+    {
+      "start": 84.271,
+      "end": 84.791,
+      "text": "Kulesh-Soup",
+      "segment": 18,
+      "information": "food-name"
+    },
+    {
+      "start": 84.791,
+      "end": 85.291,
+      "text": "and some",
+      "segment": 18
+    },
+    {
+      "start": 85.291,
+      "end": 86.038,
+      "text": "ingredient",
+      "segment": 18
+    },
+    {
+      "start": 86.172,
+      "end": 86.779,
+      "text": "- I think",
+      "segment": 18
+    },
+    {
+      "start": 86.866,
+      "end": 87.120,
+      "text": "rabbit",
+      "segment": 18
+    },
+    {
+      "start": 87.120,
+      "end": 88.413,
+      "text": "it was -",
+      "segment": 18,
+      "information": "food-ingredient"
+    },
+    {
+      "start": 88.413,
+      "end": 88.968,
+      "text": "was not",
+      "segment": 18
+    },
+    {
+      "start": 88.968,
+      "end": 89.671,
+      "text": "so good",
+      "information": "food-quality",
+      "segment": 18
+    },
+    {
+      "start": 89.671,
+      "end": 90.171,
+      "text": "for my",
+      "segment": 18
+    },
+    {
+      "start": 90.171,
+      "end": 90.671,
+      "text": "tummy.",
+      "segment": 18
+    },
+    {
+      "start": 91.127,
+      "end": 91.776,
+      "text": "Yes, I would",
+      "segment": 19
+    },
+    {
+      "start": 91.776,
+      "end": 92.383,
+      "text": "very much",
+      "segment": 19
+    },
+    {
+      "start": 92.383,
+      "end": 92.956,
+      "text": "like that.",
+      "segment": 19
+    },
+    {
+      "start": 93.338,
+      "end": 93.838,
+      "text": "Your cooking",
+      "segment": 20
+    },
+    {
+      "start": 93.838,
+      "end": 95.048,
+      "text": "is the best!",
+      "segment": 20
+    },
+    {
+      "start": 95.246,
+      "end": 96.036,
+      "text": "Thank you.",
+      "segment": 21
+    },
+    {
+      "start": 96.277,
+      "end": 96.777,
+      "text": "God",
+      "segment": 22
+    },
+    {
+      "start": 96.777,
+      "end": 97.384,
+      "text": "bless mother",
+      "segment": 22
+    },
+    {
+      "start": 97.384,
+      "end": 98.166,
+      "text": "russia!",
+      "segment": 22
+    },
+    {
+      "start": 100.402,
+      "end": 101.722,
+      "text": "Looks like success!",
+      "segment": 23
+    },
+    {
+      "start": 101.722,
+      "end": 102.485,
+      "text": "You've censored",
+      "segment": 24
+    },
+    {
+      "start": 102.485,
+      "end": 103.23,
+      "text": "the part about",
+      "segment": 24
+    },
+    {
+      "start": 103.23,
+      "end": 104.202,
+      "text": "my lunch today.",
+      "segment": 24
+    },
+    {
+      "start": 104.343,
+      "end": 104.906,
+      "text": "So no more",
+      "segment": 25
+    },
+    {
+      "start": 104.906,
+      "end": 105.906,
+      "text": "slacking off!",
+      "segment": 25
+    },
+    {
+      "start": 106.116,
+      "end": 107.551,
+      "text": "Get started already,",
+      "segment": 26
+    },
+    {
+      "start": 107.905,
+      "end": 108.405,
+      "text": "I hear",
+      "segment": 26
+    },
+    {
+      "start": 108.405,
+      "end": 108.905,
+      "text": "the spy",
+      "segment": 26
+    },
+    {
+      "start": 108.905,
+      "end": 109.405,
+      "text": "is starting",
+      "segment": 26
+    },
+    {
+      "start": 109.405,
+      "end": 110.045,
+      "text": "to talk",
+      "segment": 26
+    },
+    {
+      "start": 110.045,
+      "end": 110.545,
+      "text": "at this",
+      "segment": 26
+    },
+    {
+      "start": 110.545,
+      "end": 111.545,
+      "text": "very moment.",
+      "segment": 26
+    },
+    {
+      "start": 113.518,
+      "end": 114.192,
+      "text": "What did",
+      "segment": 27
+    },
+    {
+      "start": 114.192,
+      "end": 114.884,
+      "text": "you do!!",
+      "segment": 27
+    },
+    {
+      "start": 115.234,
+      "end": 115.734,
+      "text": "The part",
+      "segment": 28
+    },
+    {
+      "start": 115.734,
+      "end": 116.404,
+      "text": "about my",
+      "segment": 28
+    },
+    {
+      "start": 116.404,
+      "end": 116.904,
+      "text": "meal is",
+      "segment": 28
+    },
+    {
+      "start": 116.904,
+      "end": 117.904,
+      "text": "still in",
+      "segment": 28
+    },
+    {
+      "start": 117.904,
+      "end": 118.904,
+      "text": "and perfectly",
+      "segment": 28
+    },
+    {
+      "start": 118.904,
+      "end": 119.904,
+      "text": "understandable...",
+      "segment": 28
+    },
+    {
+      "start": 120.35,
+      "end": 121.341,
+      "text": "By god,",
+      "segment": 29
+    },
+    {
+      "start": 121.572,
+      "end": 122.286,
+      "text": "I hope you'll",
+      "segment": 29
+    },
+    {
+      "start": 122.286,
+      "end": 122.876,
+      "text": "do a",
+      "segment": 29
+    },
+    {
+      "start": 122.876,
+      "end": 123.376,
+      "text": "better job",
+      "segment": 29
+    },
+    {
+      "start": 123.376,
+      "end": 123.876,
+      "text": "when it",
+      "segment": 29
+    },
+    {
+      "start": 123.876,
+      "end": 124.588,
+      "text": "gets serious.",
+      "segment": 29
+    },
+    {
+      "start": 125.092,
+      "end": 126.0,
+      "text": "Do you want to",
+      "segment": 30
+    },
+    {
+      "start": 126.0,
+      "end": 126.614,
+      "text": "try it again",
+      "segment": 30
+    },
+    {
+      "start": 126.862,
+      "end": 127.362,
+      "text": "or get started",
+      "segment": 30
+    },
+    {
+      "start": 127.362,
+      "end": 128.211,
+      "text": "with the",
+      "segment": 30
+    },
+    {
+      "start": 128.211,
+      "end": 129.017,
+      "text": "real thing?",
+      "segment": 30
+    },
+    {
+      "start": 130.969,
+      "end": 131.969,
+      "text": "Good luck.",
+      "segment": 31
+    },
+    {
+      "start": 134.308,
+      "end": 134.808,
+      "text": "God,",
+      "segment": 32
+    },
+    {
+      "start": 134.808,
+      "end": 135.52,
+      "text": "you have doomed",
+      "segment": 32
+    },
+    {
+      "start": 135.52,
+      "end": 136.267,
+      "text": "us all.",
+      "segment": 32
+    },
+    {
+      "start": 136.601,
+      "end": 137.479,
+      "text": "We will be bombed",
+      "segment": 33
+    },
+    {
+      "start": 137.561,
+      "end": 138.061,
+      "text": "and it",
+      "segment": 33
+    },
+    {
+      "start": 138.061,
+      "end": 138.561,
+      "text": "will be",
+      "segment": 33
+    },
+    {
+      "start": 138.561,
+      "end": 139.244,
+      "text": "your fault.",
+      "segment": 33
+    },
+    {
+      "start": 139.664,
+      "end": 141.064,
+      "text": "I am going to see my wife,",
+      "segment": 34
+    },
+    {
+      "start": 141.064,
+      "end": 141.87,
+      "text": "this is it...",
+      "segment": 34
+    },
+    {
+      "start": 144.149,
+      "end": 144.649,
+      "text": "You didn't",
+      "segment": 35
+    },
+    {
+      "start": 144.649,
+      "end": 145.263,
+      "text": "catch it",
+      "segment": 35
+    },
+    {
+      "start": 145.263,
+      "end": 145.807,
+      "text": "all, but",
+      "segment": 35
+    },
+    {
+      "start": 145.807,
+      "end": 146.385,
+      "text": "we should",
+      "segment": 35
+    },
+    {
+      "start": 146.385,
+      "end": 147.385,
+      "text": "be fine...",
+      "segment": 35
+    },
+    {
+      "start": 147.767,
+      "end": 148.267,
+      "text": "We caught",
+      "segment": 36
+    },
+    {
+      "start": 148.267,
+      "end": 149.138,
+      "text": "enough of it,",
+      "segment": 36
+    },
+    {
+      "start": 149.301,
+      "end": 150.0,
+      "text": "so that they",
+      "segment": 36
+    },
+    {
+      "start": 150.0,
+      "end": 150.868,
+      "text": "might disregard it",
+      "segment": 36
+    },
+    {
+      "start": 150.868,
+      "end": 152.629,
+      "text": "as untrustworthy.",
+      "segment": 36
+    },
+    {
+      "start": 152.821,
+      "end": 154.448,
+      "text": "Thanks for your service.",
+      "segment": 37
+    },
+    {
+      "start": 156.627,
+      "end": 157.392,
+      "text": "Excellent!",
+      "segment": 38
+    },
+    {
+      "start": 157.663,
+      "end": 158.516,
+      "text": "What they got",
+      "segment": 39
+    },
+    {
+      "start": 158.516,
+      "end": 159.424,
+      "text": "was pretty much",
+      "segment": 39
+    },
+    {
+      "start": 159.424,
+      "end": 160.128,
+      "text": "useless.",
+      "segment": 39
+    },
+    {
+      "start": 160.398,
+      "end": 161.792,
+      "text": "You did your job well!",
+      "segment": 40
+    },
+    {
+      "start": 161.762,
+      "end": 162.728,
+      "text": "Thanks for your",
+      "segment": 41
+    },
+    {
+      "start": 162.728,
+      "end": 163.336,
+      "text": "service.",
+      "segment": 41
+    },
+    {
+      "start": 165.883,
+      "end": 166.491,
+      "text": "What...",
+      "segment": 42
+    },
+    {
+      "start": 166.773,
+      "end": 167.774,
+      "text": "you pretty much",
+      "segment": 43
+    },
+    {
+      "start": 167.774,
+      "end": 169.0,
+      "text": "censored only the parts",
+      "segment": 43
+    },
+    {
+      "start": 169.0,
+      "end": 170.551,
+      "text": "that were not relevant at all",
+      "segment": 43
+    },
+    {
+      "start": 170.697,
+      "end": 171.305,
+      "text": "and left in",
+      "segment": 43
+    },
+    {
+      "start": 171.305,
+      "end": 171.805,
+      "text": "the bits",
+      "segment": 43
+    },
+    {
+      "start": 171.805,
+      "end": 172.806,
+      "text": "that gave them",
+      "segment": 43
+    },
+    {
+      "start": 172.806,
+      "end": 173.608,
+      "text": "information...",
+      "segment": 43
+    },
+    {
+      "start": 174.0,
+      "end": 174.552,
+      "text": "How?",
+      "segment": 44
+    },
+    {
+      "start": 174.947,
+      "end": 175.447,
+      "text": "How did",
+      "segment": 45
+    },
+    {
+      "start": 175.447,
+      "end": 176.081,
+      "text": "you do",
+      "segment": 45
+    },
+    {
+      "start": 176.081,
+      "end": 176.785,
+      "text": "so bad??",
+      "segment": 45
+    },
+    {
+      "start": 177.12,
+      "end": 179.082,
+      "text": "Are you trying to sabotage us?",
+      "segment": 46
+    }
+  ]
+}
