@@ -1,5 +1,5 @@
 
-with open("russian-officer-full-text.txt", "r") as f:
+with open("input.txt", "r") as f:
     text = f.read()
 
 # Remove all new lines
