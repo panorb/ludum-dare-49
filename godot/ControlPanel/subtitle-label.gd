@@ -37,9 +37,9 @@ func map_subtitles_to_animation(subtitles_json):
 		_set_text_end_animation(index)
 
 	animation_player.add_animation(animation_name, current_animation)
-	animation_player.set_current_animation(animation_name)
 
 func start_subtitles():
+	animation_player.set_current_animation(animation_name)
 	animation_player.play()
 	
 func _subtitles_duration():
@@ -75,17 +75,51 @@ func _on_text_started(index : int):
 func _on_text_ended(index : int):
 	emit_signal("text_ended", index)
 
-func _render_text(current_index : int = -1):
+func _render_text(current_index):
+	self.bbcode_text = ""
+	
+	var current_segment_id = subtitles_dict[current_index]["segment"]
+	
 	var line = ""
-	for index in range(current_index - 2, current_index + 2):
-		if index < 0 or index >= subtitles_dict.size():
-			continue
+	var index = current_index - 1
+	
+	# 1. line
+	# Part before the current text
+	while index >= 0 and subtitles_dict[index]["segment"] == current_segment_id:
+		line = subtitles_dict[index]["text"] + " " + line
+		index -= 1
+	
+	# Current text
+	line += "[color=#BF003F]" + subtitles_dict[current_index]["text"] + "[/color]"
+	
+	# Part after the current text
+	index = current_index + 1
+	while index < subtitles_dict.size() and subtitles_dict[index]["segment"] == current_segment_id:
+		line += " " + subtitles_dict[index]["text"]
+		index += 1
+	
+	self.bbcode_text = line
 		
-		var text_element = ""
-		if index == current_index:
-			text_element = "[b]" + subtitles_dict[index]["text"] + "[/b]"
-		else:
-			text_element = subtitles_dict[index]["text"]
-		line = line + " " + text_element
-
-	self.bbcode_text = subtitles_dict[current_index]["text"]
+	# Reached end of text?
+	if index >= subtitles_dict.size():
+		return
+	
+	# 2. line
+	line = ""
+	while index < subtitles_dict.size() and subtitles_dict[index]["segment"] == current_segment_id + 1:
+		line += subtitles_dict[index]["text"] + " "
+		index += 1
+	
+	self.bbcode_text += "\n" +  line
+	
+	# Reached end of text?
+	if index >= subtitles_dict.size():
+		return
+	
+	# 3. line 
+	line = ""
+	while index < subtitles_dict.size() and subtitles_dict[index]["segment"] == current_segment_id + 2:
+		line += subtitles_dict[index]["text"] + " "
+		index += 1
+	
+	self.bbcode_text += "\n" + line

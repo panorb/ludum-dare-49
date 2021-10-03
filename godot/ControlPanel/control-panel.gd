@@ -64,4 +64,3 @@ func _on_text_ended(index):
 
 	var coverage = round(subtitles[index]["time_pressed"] \
 						/ ((subtitles[index]["end"] - subtitles[index]["start"]) * 100)) * 10
-	print(coverage)

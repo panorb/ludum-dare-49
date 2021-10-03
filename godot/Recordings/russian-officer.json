@@ -1,1298 +1,1298 @@
 [
   {
-    "index": 1,
     "start": 0.72,
     "end": 1.44,
-    "text": "Second Chief"
+    "text": "Second Chief",
+    "segment": 1
   },
   {
-    "index": 2,
     "start": 1.44,
     "end": 2.56,
-    "text": "Directorate Sergei,"
+    "text": "Directorate Sergei,",
+    "segment": 1
   },
   {
-    "index": 3,
     "start": 2.56,
     "end": 2.88,
-    "text": "what are"
+    "text": "what are",
+    "segment": 1
   },
   {
-    "index": 4,
     "start": 2.88,
     "end": 3.6,
-    "text": "you doing?"
+    "text": "you doing?",
+    "segment": 1
   },
   {
-    "index": 5,
     "start": 3.6,
     "end": 4.4,
-    "text": "Slacking off??"
+    "text": "Slacking off??",
+    "segment": 2
   },
   {
-    "index": 6,
     "start": 7.36,
     "end": 7.6,
-    "text": "If you"
+    "text": "If you",
+    "segment": 3
   },
   {
-    "index": 7,
     "start": 7.6,
     "end": 8.08,
-    "text": "have nothing"
+    "text": "have nothing",
+    "segment": 3
   },
   {
-    "index": 8,
     "start": 8.08,
     "end": 8.48,
-    "text": "to do,"
+    "text": "to do,",
+    "segment": 3
   },
   {
-    "index": 9,
     "start": 8.48,
     "end": 8.8,
-    "text": "then get"
+    "text": "then get",
+    "segment": 3
   },
   {
-    "index": 10,
     "start": 8.8,
     "end": 9.12,
-    "text": "to the"
+    "text": "to the",
+    "segment": 3
   },
   {
-    "index": 11,
     "start": 9.12,
     "end": 9.92,
-    "text": "control panel"
+    "text": "control panel",
+    "segment": 3
   },
   {
-    "index": 12,
     "start": 9.92,
     "end": 10.4,
-    "text": "and start"
+    "text": "and start",
+    "segment": 3
   },
   {
-    "index": 13,
     "start": 10.4,
     "end": 11.44,
-    "text": "the counter-intelligence"
+    "text": "the counter-intelligence",
+    "segment": 3
   },
   {
-    "index": 14,
     "start": 11.44,
     "end": 11.84,
-    "text": "measure!"
+    "text": "measure!",
+    "segment": 3
   },
   {
-    "index": 15,
     "start": 12.48,
     "end": 12.72,
-    "text": "I've"
+    "text": "I've",
+    "segment": 4
   },
   {
-    "index": 16,
     "start": 12.72,
     "end": 13.44,
-    "text": "just received"
+    "text": "just received",
+    "segment": 4
   },
   {
-    "index": 17,
     "start": 13.44,
     "end": 14.0,
-    "text": "word, that"
+    "text": "word, that",
+    "segment": 4
   },
   {
-    "index": 18,
     "start": 14.0,
     "end": 14.88,
-    "text": "an unidentified"
+    "text": "an unidentified",
+    "segment": 4
   },
   {
-    "index": 19,
     "start": 14.88,
     "end": 15.76,
-    "text": "American spy"
+    "text": "American spy",
+    "segment": 4
   },
   {
-    "index": 20,
     "start": 15.76,
     "end": 16.0,
-    "text": "in our"
+    "text": "in our",
+    "segment": 4
   },
   {
-    "index": 21,
     "start": 16.0,
     "end": 16.4,
-    "text": "ranks is"
+    "text": "ranks is",
+    "segment": 4
   },
   {
-    "index": 22,
     "start": 16.4,
     "end": 16.8,
-    "text": "trying to"
+    "text": "trying to",
+    "segment": 4
   },
   {
-    "index": 23,
     "start": 16.8,
     "end": 17.6,
-    "text": "pass information"
+    "text": "pass information",
+    "segment": 4
   },
   {
-    "index": 24,
     "start": 17.6,
     "end": 17.84,
-    "text": "to the"
+    "text": "to the",
+    "segment": 4
   },
   {
-    "index": 25,
     "start": 17.84,
     "end": 18.48,
-    "text": "Americans."
+    "text": "Americans.",
+    "segment": 4
   },
   {
-    "index": 26,
     "start": 19.28,
     "end": 19.76,
-    "text": "Thankfully,"
+    "text": "Thankfully,",
+    "segment": 5
   },
   {
-    "index": 27,
     "start": 19.76,
     "end": 20.24,
-    "text": "his connection"
+    "text": "his connection",
+    "segment": 5
   },
   {
-    "index": 28,
     "start": 20.24,
     "end": 21.04,
-    "text": "is unstable,"
+    "text": "is unstable,",
+    "segment": 5
   },
   {
-    "index": 29,
     "start": 21.04,
     "end": 21.28,
-    "text": "so a"
+    "text": "so a",
+    "segment": 5
   },
   {
-    "index": 30,
     "start": 21.28,
     "end": 21.6,
-    "text": "bit of"
+    "text": "bit of",
+    "segment": 5
   },
   {
-    "index": 31,
     "start": 21.6,
     "end": 22.48,
-    "text": "signal interference"
+    "text": "signal interference",
+    "segment": 5
   },
   {
-    "index": 32,
     "start": 22.48,
     "end": 22.8,
-    "text": "should do"
+    "text": "should do",
+    "segment": 5
   },
   {
-    "index": 33,
     "start": 22.8,
     "end": 23.6,
-    "text": "the job."
+    "text": "the job.",
+    "segment": 5
   },
   {
-    "index": 34,
     "start": 23.6,
     "end": 24.16,
-    "text": "Just press"
+    "text": "Just press",
+    "segment": 6
   },
   {
-    "index": 35,
     "start": 24.16,
     "end": 24.56,
-    "text": "the big"
+    "text": "the big",
+    "segment": 6
   },
   {
-    "index": 36,
     "start": 24.56,
     "end": 25.04,
-    "text": "button in"
+    "text": "button in",
+    "segment": 6
   },
   {
-    "index": 37,
     "start": 25.04,
     "end": 25.44,
-    "text": "front of"
+    "text": "front of",
+    "segment": 6
   },
   {
-    "index": 38,
     "start": 25.44,
     "end": 25.76,
-    "text": "you if"
+    "text": "you if",
+    "segment": 6
   },
   {
-    "index": 39,
     "start": 25.76,
     "end": 26.16,
-    "text": "he says"
+    "text": "he says",
+    "segment": 6
   },
   {
-    "index": 40,
     "start": 26.16,
     "end": 26.72,
-    "text": "something that"
+    "text": "something that",
+    "segment": 6
   },
   {
-    "index": 41,
     "start": 26.72,
     "end": 27.12,
-    "text": "better be"
+    "text": "better be",
+    "segment": 6
   },
   {
-    "index": 42,
     "start": 27.12,
     "end": 27.44,
-    "text": "left a"
+    "text": "left a",
+    "segment": 6
   },
   {
-    "index": 43,
     "start": 27.44,
     "end": 27.84,
-    "text": "secret of"
+    "text": "secret of",
+    "segment": 6
   },
   {
-    "index": 44,
     "start": 27.84,
     "end": 28.56,
-    "text": "our institution."
+    "text": "our institution.",
+    "segment": 6
   },
   {
-    "index": 45,
     "start": 29.52,
     "end": 30.0,
-    "text": "But don't"
+    "text": "But don't",
+    "segment": 7
   },
   {
-    "index": 46,
     "start": 30.0,
     "end": 30.48,
-    "text": "overdo it,"
+    "text": "overdo it,",
+    "segment": 7
   },
   {
-    "index": 47,
     "start": 31.2,
     "end": 31.68,
-    "text": "our power"
+    "text": "our power",
+    "segment": 7
   },
   {
-    "index": 48,
     "start": 31.68,
     "end": 32.08,
-    "text": "grid is"
+    "text": "grid is",
+    "segment": 7
   },
   {
-    "index": 49,
     "start": 32.08,
     "end": 32.4,
-    "text": "weak, and"
+    "text": "weak, and",
+    "segment": 7
   },
   {
-    "index": 50,
     "start": 32.4,
     "end": 32.8,
-    "text": "we can"
+    "text": "we can",
+    "segment": 7
   },
   {
-    "index": 51,
     "start": 32.8,
     "end": 33.2,
-    "text": "only do"
+    "text": "only do",
+    "segment": 7
   },
   {
-    "index": 52,
     "start": 33.2,
     "end": 33.6,
-    "text": "as much"
+    "text": "as much",
+    "segment": 7
   },
   {
-    "index": 53,
     "start": 33.6,
     "end": 34.24,
-    "text": "interference as"
+    "text": "interference as",
+    "segment": 7
   },
   {
-    "index": 54,
     "start": 34.24,
     "end": 34.56,
-    "text": "we have"
+    "text": "we have",
+    "segment": 7
   },
   {
-    "index": 55,
     "start": 34.56,
     "end": 34.96,
-    "text": "energy in"
+    "text": "energy in",
+    "segment": 7
   },
   {
-    "index": 56,
     "start": 34.96,
     "end": 35.68,
-    "text": "our batteries."
+    "text": "our batteries.",
+    "segment": 7
   },
   {
-    "index": 57,
     "start": 36.72,
     "end": 37.04,
-    "text": "If you"
+    "text": "If you",
+    "segment": 8
   },
   {
-    "index": 58,
     "start": 37.04,
     "end": 37.68,
-    "text": "run out,"
+    "text": "run out,",
+    "segment": 8
   },
   {
-    "index": 59,
     "start": 37.68,
     "end": 38.0,
-    "text": "you will"
+    "text": "you will",
+    "segment": 8
   },
   {
-    "index": 60,
     "start": 38.0,
     "end": 38.32,
-    "text": "have to"
+    "text": "have to",
+    "segment": 8
   },
   {
-    "index": 61,
     "start": 38.32,
     "end": 38.8,
-    "text": "wait for"
+    "text": "wait for",
+    "segment": 8
   },
   {
-    "index": 62,
     "start": 38.8,
     "end": 39.04,
-    "text": "it to"
+    "text": "it to",
+    "segment": 8
   },
   {
-    "index": 63,
     "start": 39.04,
     "end": 40.16,
-    "text": "slowly recharge"
+    "text": "slowly recharge",
+    "segment": 8
   },
   {
-    "index": 64,
     "start": 40.16,
     "end": 40.48,
-    "text": "again."
+    "text": "again.",
+    "segment": 8
   },
   {
-    "index": 65,
     "start": 42.24,
     "end": 43.84,
-    "text": "Understood?"
+    "text": "Understood?",
+    "segment": 9
   },
   {
-    "index": 66,
     "start": 44.48,
     "end": 44.96,
-    "text": "Alright, I"
+    "text": "Alright, I",
+    "segment": 10
   },
   {
-    "index": 67,
     "start": 44.96,
     "end": 45.6,
-    "text": "will repeat"
+    "text": "will repeat",
+    "segment": 10
   },
   {
-    "index": 68,
     "start": 45.6,
     "end": 45.76,
-    "text": "it..."
+    "text": "it...",
+    "segment": 10
   },
   {
-    "index": 69,
     "start": 47.44,
     "end": 47.68,
-    "text": "I"
+    "text": "I",
+    "segment": 11
   },
   {
-    "index": 70,
     "start": 47.68,
     "end": 48.08,
-    "text": "will now,"
+    "text": "will now,",
+    "segment": 11
   },
   {
-    "index": 71,
     "start": 48.08,
     "end": 48.48,
-    "text": "make a"
+    "text": "make a",
+    "segment": 11
   },
   {
-    "index": 72,
     "start": 48.48,
     "end": 49.04,
-    "text": "quick call"
+    "text": "quick call",
+    "segment": 11
   },
   {
-    "index": 73,
     "start": 49.04,
     "end": 49.36,
-    "text": "for you"
+    "text": "for you",
+    "segment": 11
   },
   {
-    "index": 74,
     "start": 49.36,
     "end": 49.76,
-    "text": "to test"
+    "text": "to test",
+    "segment": 11
   },
   {
-    "index": 75,
     "start": 49.76,
     "end": 50.48,
-    "text": "it out."
+    "text": "it out.",
+    "segment": 11
   },
   {
-    "index": 76,
     "start": 50.48,
     "end": 50.96,
-    "text": "Censor the"
+    "text": "Censor the",
+    "segment": 12
   },
   {
-    "index": 77,
     "start": 50.96,
     "end": 51.44,
-    "text": "part, where"
+    "text": "part, where",
+    "segment": 12
   },
   {
-    "index": 78,
     "start": 51.44,
     "end": 51.84,
-    "text": "I spill"
+    "text": "I spill",
+    "segment": 12
   },
   {
-    "index": 79,
     "start": 51.84,
     "end": 52.88,
-    "text": "critical intelligence"
+    "text": "critical intelligence",
+    "segment": 12
   },
   {
-    "index": 80,
     "start": 52.88,
     "end": 53.2,
-    "text": "about my"
+    "text": "about my",
+    "segment": 12
   },
   {
-    "index": 81,
     "start": 53.2,
     "end": 53.92,
-    "text": "lunch today."
+    "text": "lunch today.",
+    "segment": 12
   },
   {
-    "index": 82,
     "start": 56.08,
     "end": 56.88,
-    "text": "Anya, my"
+    "text": "Anya, my",
+    "segment": 13
   },
   {
-    "index": 83,
     "start": 56.88,
     "end": 57.84,
-    "text": "beautiful wife."
+    "text": "beautiful wife.",
+    "segment": 13
   },
   {
-    "index": 84,
     "start": 57.84,
     "end": 58.16,
-    "text": "How are"
+    "text": "How are",
+    "segment": 14
   },
   {
-    "index": 85,
     "start": 58.16,
     "end": 58.8,
-    "text": "you doing"
+    "text": "you doing",
+    "segment": 14
   },
   {
-    "index": 86,
     "start": 58.8,
     "end": 59.44,
-    "text": "today?"
+    "text": "today?",
+    "segment": 14
   },
   {
-    "index": 87,
     "start": 59.44,
     "end": 59.68,
-    "text": "Did"
+    "text": "Did",
+    "segment": 15
   },
   {
-    "index": 88,
     "start": 59.68,
     "end": 60.08,
-    "text": "you meet"
+    "text": "you meet",
+    "segment": 15
   },
   {
-    "index": 89,
     "start": 60.08,
     "end": 60.4,
-    "text": "the new"
+    "text": "the new",
+    "segment": 15
   },
   {
-    "index": 90,
     "start": 60.4,
     "end": 60.96,
-    "text": "neighbors?"
+    "text": "neighbors?",
+    "segment": 15
   },
   {
-    "index": 91,
     "start": 61.68,
     "end": 62.32,
-    "text": "Oh"
+    "text": "Oh",
+    "segment": 16
   },
   {
-    "index": 92,
     "start": 62.32,
     "end": 62.8,
-    "text": "my day"
+    "text": "my day",
+    "segment": 16
   },
   {
-    "index": 93,
     "start": 62.8,
     "end": 63.36,
-    "text": "was good"
+    "text": "was good",
+    "segment": 16
   },
   {
-    "index": 94,
     "start": 63.36,
     "end": 63.92,
-    "text": "so far,"
+    "text": "so far,",
+    "segment": 16
   },
   {
-    "index": 95,
     "start": 63.92,
     "end": 64.48,
-    "text": "I mean..."
+    "text": "I mean...",
+    "segment": 16
   },
   {
-    "index": 96,
     "start": 64.48,
     "end": 65.04,
-    "text": "except for"
+    "text": "except for",
+    "segment": 17
   },
   {
-    "index": 97,
     "start": 65.04,
     "end": 65.6,
-    "text": "the food..."
+    "text": "the food...",
+    "segment": 17
   },
   {
-    "index": 98,
     "start": 66.16,
     "end": 66.48,
-    "text": "I had"
+    "text": "I had",
+    "segment": 18
   },
   {
-    "index": 99,
     "start": 66.48,
     "end": 67.6,
-    "text": "a Kulesh-Soup"
+    "text": "a Kulesh-Soup",
+    "segment": 18
   },
   {
-    "index": 100,
     "start": 67.6,
     "end": 68.08,
-    "text": "and some"
+    "text": "and some",
+    "segment": 18
   },
   {
-    "index": 101,
     "start": 68.08,
     "end": 68.8,
-    "text": "ingredient -"
+    "text": "ingredient -",
+    "segment": 18
   },
   {
-    "index": 102,
     "start": 68.8,
     "end": 69.28,
-    "text": "I think"
+    "text": "I think",
+    "segment": 18
   },
   {
-    "index": 103,
     "start": 69.28,
     "end": 69.84,
-    "text": "rabbit it"
+    "text": "rabbit it",
+    "segment": 18
   },
   {
-    "index": 104,
     "start": 69.84,
     "end": 70.32,
-    "text": "was -"
+    "text": "was -",
+    "segment": 18
   },
   {
-    "index": 105,
     "start": 70.32,
     "end": 70.8,
-    "text": "was not"
+    "text": "was not",
+    "segment": 18
   },
   {
-    "index": 106,
     "start": 70.8,
     "end": 71.2,
-    "text": "so good"
+    "text": "so good",
+    "segment": 18
   },
   {
-    "index": 107,
     "start": 71.2,
     "end": 71.6,
-    "text": "for my"
+    "text": "for my",
+    "segment": 18
   },
   {
-    "index": 108,
     "start": 71.6,
     "end": 71.84,
-    "text": "tummy."
+    "text": "tummy.",
+    "segment": 18
   },
   {
-    "index": 109,
     "start": 72.64,
     "end": 72.96,
-    "text": "Yes,"
+    "text": "Yes,",
+    "segment": 19
   },
   {
-    "index": 110,
     "start": 73.52,
     "end": 73.92,
-    "text": "I would"
+    "text": "I would",
+    "segment": 19
   },
   {
-    "index": 111,
     "start": 73.92,
     "end": 74.56,
-    "text": "very much"
+    "text": "very much",
+    "segment": 19
   },
   {
-    "index": 112,
     "start": 74.56,
     "end": 75.36,
-    "text": "like that."
+    "text": "like that.",
+    "segment": 19
   },
   {
-    "index": 113,
     "start": 75.36,
     "end": 76.0,
-    "text": "Your cooking"
+    "text": "Your cooking",
+    "segment": 20
   },
   {
-    "index": 114,
     "start": 76.0,
     "end": 76.24,
-    "text": "is the"
+    "text": "is the",
+    "segment": 20
   },
   {
-    "index": 115,
     "start": 76.24,
     "end": 76.72,
-    "text": "best!"
+    "text": "best!",
+    "segment": 20
   },
   {
-    "index": 116,
     "start": 77.92,
     "end": 78.24,
-    "text": "Thank"
+    "text": "Thank",
+    "segment": 21
   },
   {
-    "index": 117,
     "start": 78.24,
     "end": 78.72,
-    "text": "you."
+    "text": "you.",
+    "segment": 21
   },
   {
-    "index": 118,
     "start": 78.72,
     "end": 79.04,
-    "text": "God"
+    "text": "God",
+    "segment": 22
   },
   {
-    "index": 119,
     "start": 79.04,
     "end": 79.76,
-    "text": "bless mother"
+    "text": "bless mother",
+    "segment": 22
   },
   {
-    "index": 120,
     "start": 79.76,
     "end": 80.24,
-    "text": "russia!"
+    "text": "russia!",
+    "segment": 22
   },
   {
-    "index": 121,
     "start": 83.92,
     "end": 84.24,
-    "text": "Looks"
+    "text": "Looks",
+    "segment": 23
   },
   {
-    "index": 122,
     "start": 84.24,
     "end": 85.2,
-    "text": "like success!"
+    "text": "like success!",
+    "segment": 23
   },
   {
-    "index": 123,
     "start": 85.2,
     "end": 85.92,
-    "text": "You've censored"
+    "text": "You've censored",
+    "segment": 24
   },
   {
-    "index": 124,
     "start": 85.92,
     "end": 86.32,
-    "text": "the part"
+    "text": "the part",
+    "segment": 24
   },
   {
-    "index": 125,
     "start": 86.32,
     "end": 86.72,
-    "text": "about my"
+    "text": "about my",
+    "segment": 24
   },
   {
-    "index": 126,
     "start": 86.72,
     "end": 87.84,
-    "text": "lunch today."
+    "text": "lunch today.",
+    "segment": 24
   },
   {
-    "index": 127,
     "start": 87.84,
     "end": 88.24,
-    "text": "So no"
+    "text": "So no",
+    "segment": 25
   },
   {
-    "index": 128,
     "start": 88.24,
     "end": 88.96,
-    "text": "more slacking"
+    "text": "more slacking",
+    "segment": 25
   },
   {
-    "index": 129,
     "start": 88.96,
     "end": 89.36,
-    "text": "off!"
+    "text": "off!",
+    "segment": 25
   },
   {
-    "index": 130,
     "start": 89.36,
     "end": 89.6,
-    "text": "Get"
+    "text": "Get",
+    "segment": 26
   },
   {
-    "index": 131,
     "start": 89.6,
     "end": 90.64,
-    "text": "started already,"
+    "text": "started already,",
+    "segment": 26
   },
   {
-    "index": 132,
     "start": 90.64,
     "end": 91.04,
-    "text": "I hear"
+    "text": "I hear",
+    "segment": 26
   },
   {
-    "index": 133,
     "start": 91.04,
     "end": 91.4,
-    "text": "the spy"
+    "text": "the spy",
+    "segment": 26
   },
   {
-    "index": 134,
     "start": 91.4,
     "end": 92.08,
-    "text": "is starting"
+    "text": "is starting",
+    "segment": 26
   },
   {
-    "index": 135,
     "start": 92.08,
     "end": 92.56,
-    "text": "to talk"
+    "text": "to talk",
+    "segment": 26
   },
   {
-    "index": 136,
     "start": 92.56,
     "end": 92.88,
-    "text": "at this"
+    "text": "at this",
+    "segment": 26
   },
   {
-    "index": 137,
     "start": 92.88,
     "end": 93.52,
-    "text": "very moment."
+    "text": "very moment.",
+    "segment": 26
   },
   {
-    "index": 138,
     "start": 96.32,
     "end": 96.72,
-    "text": "What did"
+    "text": "What did",
+    "segment": 27
   },
   {
-    "index": 139,
     "start": 96.72,
     "end": 97.6,
-    "text": "you do!!"
+    "text": "you do!!",
+    "segment": 27
   },
   {
-    "index": 140,
     "start": 97.6,
     "end": 98.0,
-    "text": "The part"
+    "text": "The part",
+    "segment": 28
   },
   {
-    "index": 141,
     "start": 98.0,
     "end": 98.4,
-    "text": "about my"
+    "text": "about my",
+    "segment": 28
   },
   {
-    "index": 142,
     "start": 98.4,
     "end": 98.8,
-    "text": "meal is"
+    "text": "meal is",
+    "segment": 28
   },
   {
-    "index": 143,
     "start": 98.8,
     "end": 99.44,
-    "text": "still in"
+    "text": "still in",
+    "segment": 28
   },
   {
-    "index": 144,
     "start": 99.44,
     "end": 100.24,
-    "text": "and perfectly"
+    "text": "and perfectly",
+    "segment": 28
   },
   {
-    "index": 145,
     "start": 100.24,
     "end": 101.36,
-    "text": "understandable..."
+    "text": "understandable...",
+    "segment": 28
   },
   {
-    "index": 146,
     "start": 101.36,
     "end": 101.68,
-    "text": "By"
+    "text": "By",
+    "segment": 29
   },
   {
-    "index": 147,
     "start": 101.68,
     "end": 102.16,
-    "text": "god, I"
+    "text": "god, I",
+    "segment": 29
   },
   {
-    "index": 148,
     "start": 102.16,
     "end": 102.56,
-    "text": "hope you'll"
+    "text": "hope you'll",
+    "segment": 29
   },
   {
-    "index": 149,
     "start": 102.56,
     "end": 102.8,
-    "text": "do a"
+    "text": "do a",
+    "segment": 29
   },
   {
-    "index": 150,
     "start": 102.8,
     "end": 103.52,
-    "text": "better job"
+    "text": "better job",
+    "segment": 29
   },
   {
-    "index": 151,
     "start": 103.52,
     "end": 103.84,
-    "text": "when it"
+    "text": "when it",
+    "segment": 29
   },
   {
-    "index": 152,
     "start": 103.84,
     "end": 104.88,
-    "text": "gets serious."
+    "text": "gets serious.",
+    "segment": 29
   },
   {
-    "index": 153,
     "start": 104.88,
     "end": 105.12,
-    "text": "Do you"
+    "text": "Do you",
+    "segment": 30
   },
   {
-    "index": 154,
     "start": 105.12,
     "end": 105.44,
-    "text": "want to"
+    "text": "want to",
+    "segment": 30
   },
   {
-    "index": 155,
     "start": 105.44,
     "end": 105.76,
-    "text": "try it"
+    "text": "try it",
+    "segment": 30
   },
   {
-    "index": 156,
     "start": 105.76,
     "end": 106.16,
-    "text": "again or"
+    "text": "again or",
+    "segment": 30
   },
   {
-    "index": 157,
     "start": 106.16,
     "end": 106.8,
-    "text": "get started"
+    "text": "get started",
+    "segment": 30
   },
   {
-    "index": 158,
     "start": 106.8,
     "end": 107.04,
-    "text": "with the"
+    "text": "with the",
+    "segment": 30
   },
   {
-    "index": 159,
     "start": 107.04,
     "end": 107.6,
-    "text": "real thing?"
+    "text": "real thing?",
+    "segment": 30
   },
   {
-    "index": 160,
     "start": 111.36,
     "end": 113.84,
-    "text": "Good luck."
+    "text": "Good luck.",
+    "segment": 31
   },
   {
-    "index": 161,
     "start": 114.88,
     "end": 115.68,
-    "text": "God, you"
+    "text": "God, you",
+    "segment": 32
   },
   {
-    "index": 162,
     "start": 115.68,
     "end": 116.24,
-    "text": "have doomed"
+    "text": "have doomed",
+    "segment": 32
   },
   {
-    "index": 163,
     "start": 116.24,
     "end": 116.88,
-    "text": "us all."
+    "text": "us all.",
+    "segment": 32
   },
   {
-    "index": 164,
     "start": 116.88,
     "end": 117.28,
-    "text": "We will"
+    "text": "We will",
+    "segment": 33
   },
   {
-    "index": 165,
     "start": 117.28,
     "end": 117.84,
-    "text": "be bombed"
+    "text": "be bombed",
+    "segment": 33
   },
   {
-    "index": 166,
     "start": 117.84,
     "end": 118.16,
-    "text": "and it"
+    "text": "and it",
+    "segment": 33
   },
   {
-    "index": 167,
     "start": 118.16,
     "end": 118.48,
-    "text": "will be"
+    "text": "will be",
+    "segment": 33
   },
   {
-    "index": 168,
     "start": 118.48,
     "end": 119.52,
-    "text": "your fault."
+    "text": "your fault.",
+    "segment": 33
   },
   {
-    "index": 169,
     "start": 119.52,
     "end": 119.76,
-    "text": "I am"
+    "text": "I am",
+    "segment": 34
   },
   {
-    "index": 170,
     "start": 119.76,
     "end": 120.24,
-    "text": "going to"
+    "text": "going to",
+    "segment": 34
   },
   {
-    "index": 171,
     "start": 120.24,
     "end": 120.64,
-    "text": "see my"
+    "text": "see my",
+    "segment": 34
   },
   {
-    "index": 172,
     "start": 120.64,
     "end": 121.44,
-    "text": "wife, this"
+    "text": "wife, this",
+    "segment": 34
   },
   {
-    "index": 173,
     "start": 121.44,
     "end": 121.84,
-    "text": "is it..."
+    "text": "is it...",
+    "segment": 34
   },
   {
-    "index": 174,
     "start": 125.6,
     "end": 126.16,
-    "text": "You didn't"
+    "text": "You didn't",
+    "segment": 35
   },
   {
-    "index": 175,
     "start": 126.16,
     "end": 126.56,
-    "text": "catch it"
+    "text": "catch it",
+    "segment": 35
   },
   {
-    "index": 176,
     "start": 126.56,
     "end": 126.88,
-    "text": "all, but"
+    "text": "all, but",
+    "segment": 35
   },
   {
-    "index": 177,
     "start": 126.88,
     "end": 127.2,
-    "text": "we should"
+    "text": "we should",
+    "segment": 35
   },
   {
-    "index": 178,
     "start": 127.2,
     "end": 127.92,
-    "text": "be fine..."
+    "text": "be fine...",
+    "segment": 35
   },
   {
-    "index": 179,
     "start": 127.92,
     "end": 128.32,
-    "text": "We catched"
+    "text": "We catched",
+    "segment": 36
   },
   {
-    "index": 180,
     "start": 128.32,
     "end": 128.8,
-    "text": "enough of"
+    "text": "enough of",
+    "segment": 36
   },
   {
-    "index": 181,
     "start": 128.8,
     "end": 129.2,
-    "text": "it, so"
+    "text": "it, so",
+    "segment": 36
   },
   {
-    "index": 182,
     "start": 129.2,
     "end": 129.52,
-    "text": "that they"
+    "text": "that they",
+    "segment": 36
   },
   {
-    "index": 183,
     "start": 129.52,
     "end": 130.24,
-    "text": "might disregard"
+    "text": "might disregard",
+    "segment": 36
   },
   {
-    "index": 184,
     "start": 130.24,
     "end": 130.64,
-    "text": "it as"
+    "text": "it as",
+    "segment": 36
   },
   {
-    "index": 185,
     "start": 130.64,
     "end": 131.76,
-    "text": "untrustworthy."
+    "text": "untrustworthy.",
+    "segment": 36
   },
   {
-    "index": 186,
     "start": 131.76,
     "end": 132.08,
-    "text": "Thanks"
+    "text": "Thanks",
+    "segment": 37
   },
   {
-    "index": 187,
     "start": 132.08,
     "end": 132.64,
-    "text": "for your"
+    "text": "for your",
+    "segment": 37
   },
   {
-    "index": 188,
     "start": 132.64,
     "end": 136.8,
-    "text": "service Excellent!"
+    "text": "service Excellent!",
+    "segment": 37
   },
   {
-    "index": 189,
     "start": 136.8,
     "end": 137.2,
-    "text": "What they"
+    "text": "What they",
+    "segment": 38
   },
   {
-    "index": 190,
     "start": 137.2,
     "end": 137.6,
-    "text": "got, was"
+    "text": "got, was",
+    "segment": 38
   },
   {
-    "index": 191,
     "start": 137.6,
     "end": 138.16,
-    "text": "pretty much"
+    "text": "pretty much",
+    "segment": 38
   },
   {
-    "index": 192,
     "start": 138.16,
     "end": 138.8,
-    "text": "useless."
+    "text": "useless.",
+    "segment": 38
   },
   {
-    "index": 193,
     "start": 138.8,
     "end": 139.04,
-    "text": "You"
+    "text": "You",
+    "segment": 39
   },
   {
-    "index": 194,
     "start": 139.04,
     "end": 139.44,
-    "text": "did your"
+    "text": "did your",
+    "segment": 39
   },
   {
-    "index": 195,
     "start": 139.44,
     "end": 140.24,
-    "text": "job well!"
+    "text": "job well!",
+    "segment": 39
   },
   {
-    "index": 196,
     "start": 140.24,
     "end": 140.72,
-    "text": "Thanks for"
+    "text": "Thanks for",
+    "segment": 40
   },
   {
-    "index": 197,
     "start": 140.72,
     "end": 141.84,
-    "text": "your service."
+    "text": "your service.",
+    "segment": 40
   },
   {
-    "index": 198,
     "start": 144.8,
     "end": 145.76,
-    "text": "What... you"
+    "text": "What... you",
+    "segment": 41
   },
   {
-    "index": 199,
     "start": 145.76,
     "end": 146.32,
-    "text": "pretty much"
+    "text": "pretty much",
+    "segment": 42
   },
   {
-    "index": 200,
     "start": 146.32,
     "end": 147.04,
-    "text": "censored only"
+    "text": "censored only",
+    "segment": 42
   },
   {
-    "index": 201,
     "start": 147.04,
     "end": 147.6,
-    "text": "the parts"
+    "text": "the parts",
+    "segment": 42
   },
   {
-    "index": 202,
     "start": 147.6,
     "end": 147.84,
-    "text": "that were"
+    "text": "that were",
+    "segment": 42
   },
   {
-    "index": 203,
     "start": 147.84,
     "end": 148.72,
-    "text": "not relevant"
+    "text": "not relevant",
+    "segment": 42
   },
   {
-    "index": 204,
     "start": 148.72,
     "end": 149.28,
-    "text": "at all"
+    "text": "at all",
+    "segment": 42
   },
   {
-    "index": 205,
     "start": 149.28,
     "end": 149.68,
-    "text": "and left"
+    "text": "and left",
+    "segment": 42
   },
   {
-    "index": 206,
     "start": 149.68,
     "end": 149.92,
-    "text": "in the"
+    "text": "in the",
+    "segment": 42
   },
   {
-    "index": 207,
     "start": 149.92,
     "end": 150.4,
-    "text": "bits that"
+    "text": "bits that",
+    "segment": 42
   },
   {
-    "index": 208,
     "start": 150.4,
     "end": 150.8,
-    "text": "gave them"
+    "text": "gave them",
+    "segment": 42
   },
   {
-    "index": 209,
     "start": 150.8,
     "end": 151.92,
-    "text": "information..."
+    "text": "information...",
+    "segment": 42
   },
   {
-    "index": 210,
     "start": 151.92,
     "end": 152.48,
-    "text": "How?"
+    "text": "How?",
+    "segment": 43
   },
   {
-    "index": 211,
     "start": 152.48,
     "end": 152.8,
-    "text": "How did"
+    "text": "How did",
+    "segment": 44
   },
   {
-    "index": 212,
     "start": 152.8,
     "end": 153.12,
-    "text": "you do"
+    "text": "you do",
+    "segment": 44
   },
   {
-    "index": 213,
     "start": 153.12,
     "end": 153.84,
-    "text": "so bad??"
+    "text": "so bad??",
+    "segment": 44
   },
   {
-    "index": 214,
     "start": 153.84,
     "end": 154.16,
-    "text": "Are you"
+    "text": "Are you",
+    "segment": 45
   },
   {
-    "index": 215,
     "start": 154.16,
     "end": 154.56,
-    "text": "trying to"
+    "text": "trying to",
+    "segment": 45
   },
   {
-    "index": 216,
     "start": 154.56,
     "end": 155.84,
-    "text": "sabotage us?"
+    "text": "sabotage us?",
+    "segment": 45
   }
 ]
