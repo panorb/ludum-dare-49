@@ -43,6 +43,7 @@ with open("input.srt", "r") as f:
     srt_lines = f.readlines()
 
 list_ = []
+current_segment_id = 1
 
 for i in range(0, len(srt_lines), 4):
     section_lines = srt_lines[i:i+3]
@@ -54,8 +55,12 @@ for i in range(0, len(srt_lines), 4):
     list_.append({
         "start": srt_timestamp_to_timedelta(start_time).total_seconds(),
         "end": srt_timestamp_to_timedelta(end_time).total_seconds(),
-        "text": text
+        "text": text,
+        "segment": current_segment_id
     })
+
+    if "." in text or "!" in text or "?" in text:
+        current_segment_id += 1
 
 with open("output.json", "w+") as f:
     f.write(json.dumps(list_, indent=2))
