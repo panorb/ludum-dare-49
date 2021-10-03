@@ -214,6 +214,5 @@ func _update_current_line():
 		line = PoolStringArray([line, formatted_text_element]).join(" ")
 		index += 1
 	
-	print(line)
 	lines[0].bbcode_text = "[color=#FF0000]" + line
 
