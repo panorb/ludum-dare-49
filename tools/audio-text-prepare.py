@@ -6,13 +6,14 @@ with open("input.txt", "r") as f:
 text = text.replace("\n", " ")
 output_text = ""
 words = text.split(" ")
+word_count = 4
 
-
-for i in range(0, len(words), 2):
+for i in range(0, len(words), word_count):
     output_text += words[i]
 
-    if len(words) > i+1:
-        output_text += " " + words[i+1]
+    for j in range(i+1, i+word_count):
+        if len(words) > j:
+            output_text += " " + words[j]
 
     output_text += "\n\n"
 
