@@ -13,6 +13,8 @@ var censor_button_down : bool = false
 var last_index : int = -1
 var timestamp = null
 var time_pressed : float = 0.0
+var intervals_pressed = []
+var current_censor_interval = {}
 
 func _ready():
 	subtitles_container.connect("text_started", self, "_on_text_started")
@@ -37,6 +39,9 @@ func _on_CensorButton_down():
 		return
 	if subtitles["timing"][last_index]["status"] == "running":
 		subtitles["timing"][last_index]["last_pressed"] = OS.get_ticks_msec()
+		_set_start_cursor(last_index)
+	subtitles_container.censor_button_pressed = true
+	
 
 func _on_CensorButton_up():
 	censor_button_down = false
@@ -45,7 +50,9 @@ func _on_CensorButton_up():
 	if subtitles["timing"][last_index]["status"] == "running":
 		subtitles["timing"][last_index]["time_pressed"] = subtitles["timing"][last_index]["time_pressed"] \
 												+ OS.get_ticks_msec() - subtitles["timing"][last_index]["last_pressed"]
-		
+		_set_end_cursor(last_index)
+	subtitles_container.censor_button_pressed = false
+	
 func _on_text_started(index):
 	last_index = index
 	subtitles["timing"][last_index]["status"] = "running"
@@ -53,6 +60,7 @@ func _on_text_started(index):
 	
 	if censor_button_down:
 		subtitles["timing"][last_index]["last_pressed"] = OS.get_ticks_msec()
+		_set_start_cursor(index)
 	
 func _on_text_ended(index):
 	subtitles["timing"][index]["status"] = "finished"
@@ -60,6 +68,27 @@ func _on_text_ended(index):
 	if censor_button_down:
 		subtitles["timing"][index]["time_pressed"] = subtitles["timing"][index]["time_pressed"] \
 												+ OS.get_ticks_msec()- subtitles["timing"][index]["last_pressed"]
+		_set_end_cursor(index)
 	
 	var coverage = round(subtitles["timing"][index]["time_pressed"] \
 						/ ((subtitles["timing"][index]["end"] - subtitles["timing"][index]["start"]) * 100)) * 10
+
+	print(subtitles["timing"][index])
+
+func _set_start_cursor(index: int) -> void:
+	var censor_interval = {
+		"start_position": subtitles_container.last_cursor_position
+	}
+	if not "censor_intervals" in subtitles["timing"][index].keys():
+		subtitles["timing"][index]["censor_intervals"] = [censor_interval]
+	else:
+		subtitles["timing"][index]["censor_intervals"].append(censor_interval)
+	
+func _set_end_cursor(index: int) -> void:
+	var cursor_position = subtitles_container.last_cursor_position
+	
+	if subtitles["timing"][index]["status"] == "finished":
+		cursor_position = subtitles["timing"][index]["text"].length()
+	
+	subtitles["timing"][index]["censor_intervals"][-1]["end_position"] \
+		= cursor_position
