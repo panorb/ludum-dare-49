@@ -22,7 +22,7 @@ func _ready():
 	animation_player.connect("text_started", self, "_on_text_started")
 	animation_player.connect("text_ended", self, "_on_text_ended")
 
-func _process(delta):
+func _process(_delta):
 	_render_text()
 
 func map_subtitles_to_animation(subtitles_json):
@@ -48,9 +48,13 @@ func map_subtitles_to_animation(subtitles_json):
 
 	animation_player.add_animation(animation_name, current_animation)
 
-func start_subtitles():
+func start_subtitles(from_position : float = 0.0):
 	animation_player.set_current_animation(animation_name)
+	animation_player.seek(from_position)
 	animation_player.play()
+
+func stop_subtitles() -> void:
+	animation_player.stop()
 
 func preset_subtitle_formatting(formatting : Array):
 	for setting in formatting:
@@ -136,6 +140,9 @@ func _create_upcoming_lines():
 
 
 func _render_text():
+	if not animation_player.is_playing():
+		return
+	
 	var share = min(((animation_player.current_animation_position - subtitles_dict[current_index]["start"]) \
 				/ (subtitles_dict[current_index]["end"] - subtitles_dict[current_index]["start"])),
 					1.0)

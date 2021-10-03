@@ -9,11 +9,11 @@
       "end": 54.00
     },
     "repeat": {
-      "start": 55.00,
-      "end": 66.01
+      "start": 55.0,
+      "end": 59.4
     },
     "example": {
-      "start": 72.23,
+      "start": 61.3,
       "end": 98.4
     },
     "example-success": {
@@ -25,8 +25,8 @@
       "end": 129.3
     },
     "good-luck": {
-      "start": 130.7,
-      "end": 123.2
+      "start": 130.6,
+      "end": 132.3
     },
     "ending-good": {
       "start": 156.4,
@@ -47,16 +47,33 @@
   },
   "information": {
     "food-name": {
+      "barrier": 80,
       "message": "Leaked the name of the lunch",
-      "penalty": 500
+      "penalty": 4
     },
     "food-quality": {
+      "barrier": 85,
       "message": "Leaked the quality of the lunch",
-      "penalty": 200
+      "penalty": 2
     },
     "food-ingredient": {
+      "barrier": 80,
       "message": "Leaked an ingredient of the lunch",
-      "penalty": 400
+      "penalty": 3
+    },
+    "food-leaked": {
+      "message": "Leaked all there was to know about the lunch",
+      "penalty": 10,
+      "requires": [
+        "food-name",
+        "food-quality",
+        "food-ingredient"
+      ],
+      "replaces": [
+        "food-name",
+        "food-quality",
+        "food-ingredient"
+      ]
     }
   },
   "timing": [

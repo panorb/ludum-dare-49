@@ -16,22 +16,55 @@ var time_pressed : float = 0.0
 var intervals_pressed = []
 var current_censor_interval = {}
 
+var current_chapter = ""
+
+signal text_ended(timing)
+signal chapter_ended(chapter_id)
+var chapter_ended_signal_sended = false
+
+func load_character(character_name : String) -> void:
+	var filepath_subtitles := "res://Recordings/" + character_name + ".json"
+	subtitles = json_file_parser.parse_file(filepath_subtitles)
+	subtitles_container.map_subtitles_to_animation(subtitles)
+
+	var filepath_recording := "res://Recordings/" + character_name + ".wav"
+	audio_stream_player.stream = load(filepath_recording)
+
+func play_chapter(chapter_id : String) -> void:
+	assert(chapter_id in subtitles["chapter"])
+	var start_position = subtitles["chapter"][chapter_id]["start"]
+
+	audio_stream_player.play(start_position)
+	subtitles_container.start_subtitles(start_position)
+	
+	current_chapter = chapter_id
+	chapter_ended_signal_sended = false
+
+func _process(_delta):
+	var end_position = 0.0
+	
+	if current_chapter:
+		end_position = subtitles["chapter"][current_chapter]["end"]
+
+	if audio_stream_player.get_playback_position() >= end_position:
+		subtitles_container.stop_subtitles()
+		
+		if audio_stream_player.playing:
+			audio_stream_player.stop()
+		
+		if not chapter_ended_signal_sended:
+			chapter_ended_signal_sended = true
+			emit_signal("chapter_ended", current_chapter)
+
 func _ready():
 	subtitles_container.connect("text_started", self, "_on_text_started")
 	subtitles_container.connect("text_ended", self, "_on_text_ended")
 	
 	censor_button.connect("button_down", self, "_on_CensorButton_down")
 	censor_button.connect("button_up", self, "_on_CensorButton_up")
-	
-	var filepath_subtitles = "res://Recordings/" + filename_subtitles + ".json"
-	subtitles = json_file_parser.parse_file(filepath_subtitles)
-	subtitles_container.map_subtitles_to_animation(subtitles)
-	
-	var filepath_recording = "res://Recordings/" + filename_recording + ".wav"
-	audio_stream_player.stream = load(filepath_recording)
-	
-	subtitles_container.start_subtitles()
-	audio_stream_player.play()
+
+	load_character("russian-officer")
+	play_chapter("good-luck")
 
 func _on_CensorButton_down():
 	censor_button_down = true
@@ -74,6 +107,7 @@ func _on_text_ended(index):
 						/ ((subtitles["timing"][index]["end"] - subtitles["timing"][index]["start"]) * 100)) * 10
 
 	print(subtitles["timing"][index])
+	emit_signal("text_ended", subtitles["timing"][index])
 
 func _set_start_cursor(index: int) -> void:
 	var censor_interval = {
