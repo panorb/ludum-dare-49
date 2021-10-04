@@ -85,5 +85,6 @@ text = "Quit"
 anims/idle = SubResource( 2 )
 anims/intro = SubResource( 3 )
 
+[connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
 [connection signal="pressed" from="QuitButton" to="." method="_on_QuitButton_pressed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

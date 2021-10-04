@@ -1,4 +1,4 @@
-extends VBoxContainer
+extends GameScene
 
 onready var animation_player = get_node("AnimationPlayer")
 onready var quit_button = get_node("QuitButton")
@@ -17,3 +17,6 @@ func fade_out():
 
 func _on_QuitButton_pressed():
 	get_tree().quit()
+
+func _on_StartButton_pressed():
+	emit_signal("change_scene", "Game")

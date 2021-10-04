@@ -1,4 +1,4 @@
-extends Control
+extends GameScene
 
 onready var playback = get_node("Playback")
 onready var repeat_choice = get_node("RepeatChoice")
