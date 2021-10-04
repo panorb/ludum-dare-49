@@ -23,7 +23,7 @@ func _process(delta):
 		energy_meter.value -= energy_regeneration_multiplier * delta
 		
 		if energy_meter.value == 0:
-			control_panel.stop_censoring()
+			playback.stop_censoring()
 	else:
 		energy_meter.value += energy_depletion_multiplier * delta
 		
@@ -33,7 +33,7 @@ var censorship_allowed = ["example", "segment-1", "segment-2", "segment-3"]
 
 func _start_chapter(chapter_id):
 	censor_button.enabled = chapter_id in censorship_allowed
-	control_panel.play_chapter(chapter_id)
+	playback.play_chapter(chapter_id)
 
 func _on_chapter_ended(chapter_id):
 	last_ended_chapter = chapter_id
