@@ -111,13 +111,14 @@ func _was_leaked(information_name):
 		return true
 	
 func _get_censor_points(timing):
-	if not "censored_intervals" in timing:
-		return 0
-	var sum = 0
-	for interval in timing["censored_intervals"]:
-		sum += interval["end_position"] - interval["start_position"]
+	var percentage = 0
+	if "censored_intervals" in timing:
+		var sum = 0
+		for interval in timing["censored_intervals"]:
+			sum += interval["end_position"] - interval["start_position"]
+		
+		percentage = (sum / timing["text"].length()) * 100
 	
-	var percentage = (sum / timing["text"].length()) * 100
 	var censor_points = 100 - percentage
 	if "multiplier" in timing:
 		censor_points = timing["multiplier"] * censor_points
