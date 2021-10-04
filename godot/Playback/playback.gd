@@ -64,6 +64,9 @@ func _ready():
 	play_chapter("good-luck")
 
 func start_censoring():
+	if censoring:
+		return
+	
 	censoring = true
 	audio_stream_player.volume_db = -30
 	white_noise_player.play()
@@ -74,6 +77,9 @@ func start_censoring():
 		_set_start_cursor(last_index)	
 
 func stop_censoring():
+	if not censoring:
+		return
+	
 	censoring = false
 	audio_stream_player.volume_db = 0
 	white_noise_player.stop()
@@ -95,9 +101,6 @@ func _on_text_ended(index):
 	
 	if censoring:
 		_set_end_cursor(index)
-	
-	var coverage = round(subtitles["timing"][index]["time_pressed"] \
-						/ ((subtitles["timing"][index]["end"] - subtitles["timing"][index]["start"]) * 100)) * 10
 
 	emit_signal("text_ended", subtitles["timing"][index])
 	if "information" in subtitles["timing"][index]:
@@ -114,7 +117,6 @@ func _set_start_cursor(index: int) -> void:
 	subtitles_container.update_censored_intervals(index, subtitles["timing"][index]["censored_intervals"])
 
 func _set_end_cursor(index: int) -> void:
-	print("CALLED")
 	var cursor_position = subtitles_container.last_cursor_position
 	
 	if subtitles["timing"][index]["status"] == "finished":
