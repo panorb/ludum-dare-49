@@ -51,6 +51,9 @@ func _set_end_cursor(index: int) -> void:
 	
 	if self.subtitles["timing"][index]["status"] == "finished":
 		cursor_position = self.subtitles["timing"][index]["text"].length()
+	
+	if not "censored_intervals" in self.subtitles["timing"][index]:
+		return
 
 	self.subtitles["timing"][index]["censored_intervals"][-1]["end_position"] \
 		= cursor_position

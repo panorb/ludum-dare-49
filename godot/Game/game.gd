@@ -18,11 +18,13 @@ var censor_button_down = false
 func _ready():
 	playback.load_character("russian-officer")
 	censor_button.enabled = false
-	_start_chapter("example")
+	_start_chapter("beginning")
 	
 	playback.connect("chapter_ended", self, "_on_chapter_playback_ended")
 	evaluation.connect("evaluation_finished", self, "_on_chapter_evaluation_finished")
 	evaluation.connect("leaked_info_updated", self, "_on_leaked_info_updated")
+
+onready var last_battery_value = energy_meter.value
 
 func _process(delta):
 	if censor_button_down:
@@ -32,6 +34,14 @@ func _process(delta):
 			playback.stop_censoring()
 	else:
 		energy_meter.value +=  energy_regeneration_multiplier * delta
+	
+	if (floor(last_battery_value / 100.0) <  floor(energy_meter.value / 100.0)):
+		if energy_meter.value == 1000:
+			get_node("Sounds/BatteryFull").play()
+		else:
+			get_node("Sounds/BatteryCharging").play()
+	
+	last_battery_value = energy_meter.value
 
 func _on_leaked_info_updated(text):
 	leaked_info_display.text = text
@@ -55,6 +65,9 @@ func _start_chapter(chapter_id):
 	playback.play_chapter(chapter_id)
 
 func _start_evaluation(chapter_id : String, saved_data : Dictionary, character_name : String) -> void:
+	censor_button_down = false
+	playback.stop_censoring()
+	
 	section_label.text = "EVALUATION"
 	
 	playback.visible = false

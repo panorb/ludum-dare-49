@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Game/game.gd" type="Script" id=1]
 [ext_resource path="res://Playback/Playback.tscn" type="PackedScene" id=2]
@@ -10,6 +10,8 @@
 [ext_resource path="res://Game/EndingScreen/EndingScreen.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Shared/Fonts/jelle-bold.ttf" type="DynamicFontData" id=9]
 [ext_resource path="res://Game/LeakedInfoDisplay/LeakedInfoDisplay.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Shared/Sounds/battery-charging.wav" type="AudioStream" id=11]
+[ext_resource path="res://Shared/Sounds/battery-full.wav" type="AudioStream" id=12]
 
 [sub_resource type="DynamicFont" id=1]
 size = 28
@@ -26,8 +28,9 @@ __meta__ = {
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = 20.0
 size_flags_horizontal = 3
-custom_constants/separation = 12
+custom_constants/separation = 8
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -43,18 +46,18 @@ align = 1
 [node name="Playback" parent="VBoxContainer" instance=ExtResource( 2 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 47.0
+margin_top = 43.0
 margin_right = 1280.0
-margin_bottom = 347.0
+margin_bottom = 343.0
 rect_min_size = Vector2( 0, 300 )
 script = ExtResource( 6 )
 
 [node name="Evaluation" parent="VBoxContainer" instance=ExtResource( 7 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 359.0
+margin_top = 351.0
 margin_right = 1280.0
-margin_bottom = 659.0
+margin_bottom = 651.0
 rect_min_size = Vector2( 0, 300 )
 
 [node name="CensorButton" parent="." instance=ExtResource( 5 )]
@@ -87,6 +90,14 @@ value = 1000.0
 mouse_filter = 0
 
 [node name="EndingScreen" parent="." instance=ExtResource( 8 )]
+
+[node name="Sounds" type="Node" parent="."]
+
+[node name="BatteryCharging" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 11 )
+
+[node name="BatteryFull" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 12 )
 
 [connection signal="button_down" from="CensorButton" to="." method="_on_CensorButton_button_down"]
 [connection signal="button_up" from="CensorButton" to="." method="_on_CensorButton_button_up"]
