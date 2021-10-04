@@ -16,6 +16,11 @@ func _ready():
 	playback.connect("chapter_ended", self, "_on_chapter_ended")
 
 func initialize(data, character_name):
+	available_information = {}
+	hidden_information = {}
+	leaked_information = {}
+	penalty_score = 0
+	
 	playback.initialize(data, character_name)
 	
 	# Add all information
@@ -34,7 +39,6 @@ func initialize(data, character_name):
 	for information_name in available_information.keys():
 		if "barrier" in available_information[information_name]:
 			available_information[information_name]["censor_points"] = 0
-	penalty_score = 0
 	
 func play_chapter(chapter_id : String) -> void:
 	playback.play_chapter(chapter_id)
