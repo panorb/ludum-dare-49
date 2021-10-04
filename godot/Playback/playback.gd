@@ -20,7 +20,7 @@ func play_chapter(chapter_id : String) -> void:
 	var start_position = subtitles["chapter"][chapter_id]["start"]
 
 	audio_stream_player.play(start_position)
-	subtitles_container.start_subtitles(start_position)
+	subtitles_container.start_subtitles(chapter_id)
 	
 	current_chapter = chapter_id
 	chapter_ended_signal_sended = false
@@ -46,6 +46,7 @@ func _ready():
 	subtitles_container.connect("text_ended", self, "_on_text_ended")
 
 func _on_text_started(index):
+	subtitles_container.visible = true
 	last_index = index
 	subtitles["timing"][last_index]["status"] = "running"
 	

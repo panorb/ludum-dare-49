@@ -4,43 +4,42 @@ extends Playback
 var censoring : bool = false
 
 func load_character(character_name : String) -> void:
+	self.subtitles_container.visible = false
 	var filepath_subtitles := "res://Recordings/" + character_name + ".json"
-	subtitles = json_file_parser.parse_file(filepath_subtitles)
-	subtitles_container.map_subtitles_to_animation(subtitles)
+	self.subtitles = self.json_file_parser.parse_file(filepath_subtitles)
+	self.subtitles_container.map_subtitles_to_animation(self.subtitles)
 
 	var filepath_recording := "res://Recordings/" + character_name + ".wav"
-	audio_stream_player.stream = load(filepath_recording)
+	self.audio_stream_player.stream = load(filepath_recording)
 
 func _ready():
 	._ready()
-	load_character("russian-officer")
-	play_chapter("good-luck")
 
 func start_censoring():
 	if censoring:
 		return
 	
 	censoring = true
-	audio_stream_player.volume_db = -30
-	white_noise_player.play()   
+	self.audio_stream_player.volume_db = -30
+	self.white_noise_player.play()   
 	
-	if last_index < 0:
+	if self.last_index < 0:
 		return
-	if subtitles["timing"][last_index]["status"] == "running":
-		_set_start_cursor(last_index)	
+	if self.subtitles["timing"][self.last_index]["status"] == "running":
+		_set_start_cursor(self.last_index)	
 
 func stop_censoring():
 	if not censoring:
 		return
 	
 	censoring = false
-	audio_stream_player.volume_db = 0
-	white_noise_player.stop()
+	self.audio_stream_player.volume_db = 0
+	self.white_noise_player.stop()
 	
-	if last_index < 0:
+	if self.last_index < 0:
 		return
-	if subtitles["timing"][last_index]["status"] == "running":
-		_set_end_cursor(last_index)
+	if self.subtitles["timing"][self.last_index]["status"] == "running":
+		_set_end_cursor(self.last_index)
 	
 func _on_text_started(index):
 	._on_text_started(index)
@@ -56,22 +55,22 @@ func _on_text_ended(index):
 
 func _set_start_cursor(index: int) -> void:
 	var censor_interval = {
-		"start_position": subtitles_container.last_cursor_position
+		"start_position": self.subtitles_container.last_cursor_position
 	}
-	if not "censored_intervals" in subtitles["timing"][index].keys():
-		subtitles["timing"][index]["censored_intervals"] = [censor_interval]
+	if not "censored_intervals" in self.subtitles["timing"][index].keys():
+		self.subtitles["timing"][index]["censored_intervals"] = [censor_interval]
 	else:
-		subtitles["timing"][index]["censored_intervals"].append(censor_interval)
-	subtitles_container.update_censored_intervals(index, subtitles["timing"][index]["censored_intervals"])
+		self.subtitles["timing"][index]["censored_intervals"].append(censor_interval)
+	self.subtitles_container.update_censored_intervals(index, self.subtitles["timing"][index]["censored_intervals"])
 
 func _set_end_cursor(index: int) -> void:
-	var cursor_position = subtitles_container.last_cursor_position
+	var cursor_position = self.subtitles_container.last_cursor_position
 	
-	if subtitles["timing"][index]["status"] == "finished":
-		cursor_position = subtitles["timing"][index]["text"].length()
+	if self.subtitles["timing"][index]["status"] == "finished":
+		cursor_position = self.subtitles["timing"][index]["text"].length()
 
-	subtitles["timing"][index]["censored_intervals"][-1]["end_position"] \
+	self.subtitles["timing"][index]["censored_intervals"][-1]["end_position"] \
 		= cursor_position
-	subtitles_container.update_censored_intervals(index, subtitles["timing"][index]["censored_intervals"])
+	self.subtitles_container.update_censored_intervals(index, self.subtitles["timing"][index]["censored_intervals"])
 
 
