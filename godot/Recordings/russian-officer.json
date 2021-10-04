@@ -61,7 +61,7 @@
       "penalty": 2
     },
     "food-ingredient": {
-      "barrier": 60,
+      "barrier": 80,
       "message": "Leaked an ingredient of the lunch",
       "penalty": 3
     },
@@ -687,14 +687,14 @@
       "start": 86.866,
       "end": 87.120,
       "text": "rabbit",
-      "segment": 18,
-      "information": "food-ingredient"
+      "segment": 18
     },
     {
       "start": 87.120,
       "end": 88.413,
       "text": "it was -",
-      "segment": 18
+      "segment": 18,
+      "information": "food-ingredient"
     },
     {
       "start": 88.413,

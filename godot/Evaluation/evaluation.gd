@@ -19,6 +19,8 @@ func initialize(data, character_name):
 	available_information = {}
 	hidden_information = {}
 	leaked_information = {}
+	leaked_information_label.bbcode_text = ""
+	
 	penalty_score = 0
 	
 	playback.initialize(data, character_name)

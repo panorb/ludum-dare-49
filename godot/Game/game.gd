@@ -15,7 +15,7 @@ var censor_button_down = false
 func _ready():
 	playback.load_character("russian-officer")
 	censor_button.enabled = false
-	_start_chapter("beginning")
+	_start_chapter("example")
 	
 	playback.connect("chapter_ended", self, "_on_chapter_playback_ended")
 	evaluation.connect("evaluation_finished", self, "_on_chapter_evaluation_finished")
@@ -75,24 +75,16 @@ func _on_chapter_playback_ended(chapter_id : String, saved_data : Dictionary) ->
 	if chapter_id == "example-failure":
 		repeat_choice.present()
 	
-	if chapter_id == "example-success":
-		# TODO: Übergang zum Amerikaner
+	if chapter_id in ["example-success", "good-luck"]:
+		# Übergang zum Amerikaner
 		playback.load_character("american-spy")
 		_start_chapter("segment-1")
 	
 	# Amerikanisches Hauptspiel
-	if chapter_id == "segment-1":
-		# TODO: Auswertung hier einfügen
-		_start_chapter("segment-2")
-	
-	if chapter_id == "segment-2":
-		# TODO: Auswertung hier einfügen
-		_start_chapter("segment-3")
-	
-	if chapter_id == "segment-3":
-		# TODO: Richtiges Ending je nach Penalityanzahl wählen
-		playback.load_character("russian-officer")
-		_start_chapter("ending-wtf")
+	if chapter_id in ["segment-1", "segment-2", "segment-3"]:
+		_start_evaluation(chapter_id, saved_data, "american-spy")
+
+var total_american_penalty := 0
 
 func _on_chapter_evaluation_finished(chapter_id : String, penalty_score : int):
 	if chapter_id == "example":
@@ -100,15 +92,33 @@ func _on_chapter_evaluation_finished(chapter_id : String, penalty_score : int):
 			_start_chapter("example-failure")
 		else:
 			_start_chapter("example-success")
+	
+	if chapter_id == "segment-1":
+		total_american_penalty += penalty_score
+		_start_chapter("segment-2")
+	
+	if chapter_id == "segment-2":
+		total_american_penalty += penalty_score
+		_start_chapter("segment-3")
+	
+	if chapter_id == "segment-3":
+		total_american_penalty += penalty_score
+		
+		playback.load_character("russian-officer")
+		if total_american_penalty > 12:
+			_start_chapter("ending-bad")
+		elif total_american_penalty > 5:
+			_start_chapter("ending-neutral")
+		else:
+			_start_chapter("ending-good")
+		
 
 func _on_RepeatChoice_proceed_selected():
 	if last_ended_chapter in ["beginning", "instructions"]:
 		_start_chapter("example-intro")
 	
 	if last_ended_chapter == "example-failure":
-		# TODO: Übergang zum Amerikaner
-		playback.load_character("american-spy")
-		_start_chapter("segment-1")
+		_start_chapter("good-luck")
 
 
 func _on_RepeatChoice_repeat_selected():
