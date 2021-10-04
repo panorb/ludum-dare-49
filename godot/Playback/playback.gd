@@ -13,13 +13,13 @@ var censor_button_down : bool = false
 var last_index : int = -1
 var timestamp = null
 var time_pressed : float = 0.0
-var intervals_pressed = []
-var current_censor_interval = {}
 
 var current_chapter = ""
 
 signal text_ended(timing)
 signal chapter_ended(chapter_id)
+signal information_passed(information_name, timings_index)
+
 var chapter_ended_signal_sended = false
 
 func load_character(character_name : String) -> void:
@@ -104,6 +104,8 @@ func _on_text_ended(index):
 						/ ((subtitles["timing"][index]["end"] - subtitles["timing"][index]["start"]) * 100)) * 10
 
 	emit_signal("text_ended", subtitles["timing"][index])
+	if "information" in subtitles["timing"][index]:
+		emit_signal("information_passed", subtitles["timing"][index]["information"], index)
 
 func _set_start_cursor(index: int) -> void:
 	var censor_interval = {

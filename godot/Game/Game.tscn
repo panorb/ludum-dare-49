@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Game/game.gd" type="Script" id=1]
-[ext_resource path="res://ControlPanel/ControlPanel.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Playback/Playback.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Game/RepeatChoice/RepeatChoice.tscn" type="PackedScene" id=3]
 
 [node name="Game" type="Control"]
@@ -12,7 +12,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ControlPanel" parent="." instance=ExtResource( 2 )]
+[node name="Playback" parent="." instance=ExtResource( 2 )]
 
 [node name="RepeatChoice" parent="." instance=ExtResource( 3 )]
 
