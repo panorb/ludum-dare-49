@@ -52,7 +52,6 @@ func _on_text_started(index):
 	
 func _on_text_ended(index):
 	subtitles["timing"][index]["status"] = "finished"
-
 	emit_signal("text_ended", subtitles["timing"][index])
 	if "information" in subtitles["timing"][index]:
 		emit_signal("information_passed", subtitles["timing"][index], index)

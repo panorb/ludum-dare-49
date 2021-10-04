@@ -52,7 +52,7 @@ func _on_information_passed(timing, index):
 	
 	if not index in available_information[information_name]["timings_left"]:
 		return
-	
+
 	available_information[information_name]["timings_left"].erase(index)
 	available_information[information_name]["timings_passed"].append(index)
 	
@@ -111,13 +111,12 @@ func _was_leaked(information_name):
 		return true
 	
 func _get_censor_points(timing):
-	var percentage = 0
+	var percentage = 0.0
 	if "censored_intervals" in timing:
 		var sum = 0
 		for interval in timing["censored_intervals"]:
 			sum += interval["end_position"] - interval["start_position"]
-		
-		percentage = (sum / timing["text"].length()) * 100
+		percentage = (float(sum) / timing["text"].length()) * 100
 	
 	var censor_points = 100 - percentage
 	if "multiplier" in timing:
