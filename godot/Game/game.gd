@@ -4,6 +4,7 @@ onready var playback = get_node("Playback")
 onready var repeat_choice = get_node("RepeatChoice")
 
 var last_ended_chapter := ""
+var remaining_energy := 100
 
 func _ready():
 	playback.load_character("russian-officer")
