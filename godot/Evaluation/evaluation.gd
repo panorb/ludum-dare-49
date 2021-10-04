@@ -107,7 +107,7 @@ func _leak_information(information_name):
 	leaked_information[information_name] = information
 	
 	if "replaces" in information:
-		for information_replaced in information["replaced"]:
+		for information_replaced in information["replaces"]:
 			leaked_information.erase(information_replaced)
 
 	_print_leaked_information()
@@ -119,7 +119,7 @@ func _hide_information(information_name):
 
 func _print_leaked_information():
 	var line = ""
-	for information in leaked_information.keys():
-		line = PoolStringArray([line, information["message"]]).join(", ")
+	for information_name in leaked_information.keys():
+		line = PoolStringArray([line, leaked_information[information_name]["message"]]).join(", ")
 	
 	leaked_information_label.bbcode_text = line
