@@ -12,3 +12,12 @@ __meta__ = {
 }
 
 [node name="Playback" parent="." instance=ExtResource( 2 )]
+
+[node name="LeakedInformationLabel" type="RichTextLabel" parent="."]
+margin_left = 199.8
+margin_top = 389.481
+margin_right = 1042.8
+margin_bottom = 433.481
+__meta__ = {
+"_edit_use_anchors_": false
+}

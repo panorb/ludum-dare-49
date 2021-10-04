@@ -1,61 +1,38 @@
 extends Control
 
 onready var playback = get_node("Playback")
+onready var leaked_information_label = get_node("LeakedInformationLabel")
 
 var available_information : Dictionary = {}
 var hidden_information : Dictionary = {}
 var leaked_information : Dictionary = {}
 
 func _ready():
-	playback.connect("information_passed", "_on_information_passed")
+	playback.connect("information_passed", self, "_on_information_passed")
 
 func initialize(data):
 	# Add all information
 	for information_name in data["information"].keys():
-		data["information"][information_name]["timings_left"] = []
-		data["information"][information_name]["timings_passed"] = []
-		available_information[information_name] = data["information"][information_name]
-	
+		var information = data["information"][information_name]
+		information["timings_left"] = []
+		information["timings_passed"] = []
+		available_information[information_name] = information
+
 	# Map the corresponding indices of timing
-	for index in data["timings_left"].size():
-		if "information" in data["timings_left"][index]:
-			var information_name = data["timings_left"][index]["information"]
+	for index in data["timings"].size():
+		if "information" in data["timings"][index]:
+			var information_name = data["timings"][index]["information"]
 			available_information[information_name]["timings_left"].append(index)
 
 	for information_name in available_information.keys():
-		if not "barrier" in available_information[information_name]:
-			continue
-		var total_length = 0
-		for index in available_information[information_name]:
-			total_length += data["timings_left"][index]["text"].length()
-		
-		available_information[information_name]["total_length"] = total_length
-		available_information[information_name]["censor_length"] = 0.0
+		if "barrier" in available_information[information_name]:
+			available_information[information_name]["censor_points"] = 0
 
-func get_leaked_information(data):
-	assert("timings" in data)
-	for timing in data["timings_left"]:
-		if not "information" in timing:
-			continue
-		var information = data["information"][timing["information"]]
-		var percentage_leaked = _get_percentage_of_leaked_information(timing)
-		
-		if information["barrier"] <= percentage_leaked:
-			leaked_information.append(information)
-	
-	_get_implicit_information()
+func play_chapter(chapter_id : String) -> void:
+	playback.play_chapter(chapter_id)
 
-func _get_percentage_of_leaked_information(information_name):
-	var length_censored = 0.0
-	if "censored_intervals" in timing:
-		for censored_interval in timing["censored_intervals"]:
-			length_censored += censored_interval["end_position"] - censored_interval["start_position"]
-
-	
-	var percentage = round(length_censored / timing["text"].length() * 100)
-	return percentage
-		
-func _on_information_passed(information_name, index):
+func _on_information_passed(timing, index):
+	var information_name = timing["information"]
 	if not information_name in available_information.keys():
 		return
 	
@@ -65,6 +42,8 @@ func _on_information_passed(information_name, index):
 	available_information[information_name]["timings_left"].erase(index)
 	available_information[information_name]["timings_passed"].append(index)
 	
+	available_information[information_name]["censor_points"] += _get_censor_points(timing)
+	
 	if available_information[information_name]["timings_left"].empty():
 		_information_completed(information_name)
 
@@ -72,18 +51,62 @@ func _information_completed(information_name):
 	if not information_name in available_information:
 		return
 
-	var information = available_information[information_name]
+	if _was_leaked(information_name):
+		_leak_information(information_name)
+	else:
+		_hide_information(information_name)
 	
+	# Check for other leaked information
+	for information in available_information:
+		if _was_leaked(information):
+			_leak_information(information)
+
+
 func _was_leaked(information_name):
-	if information_name in hidden_information:
-		return false
-		
 	if information_name in leaked_information:
 		return true
 	
-	if not information_name in available_information or not available_information[information_name]["timings_left"].empty():
+	if information_name in hidden_information:
 		return false
 	
-	if "barrier" in information_name:
-		_get_percentage_of_leaked_information(information_name)
+	var information = available_information[information_name]
 	
+	if "barrier" in information:
+		if not information["timings_left"].empty():
+			return false
+		if information["censor_points"] >= information["barrier"]:
+			return true
+		else:
+			return false
+
+	elif "requires" in information:
+		for requirement in information["requires"]:
+			if requirement in available_information or requirement in hidden_information:
+				return false
+
+		return true 
+	
+func _get_censor_points(timing):
+	if not "censored_intervals" in timing:
+		return 0
+	var sum = 0
+	for interval in timing["censored_interval"]:
+		sum += interval["end_position"] - interval["start_position"]
+	
+	var percentage = (sum / (timing["end"] - timing["start"])) * 100
+	var censor_points = percentage
+	if "multiplier" in timing:
+		censor_points = timing["multiplier"] * censor_points
+	return censor_points
+
+func _leak_information(information_name):
+	var information = available_information[information_name]
+	available_information.erase(information_name)
+	leaked_information[information_name] = information
+
+	leaked_information_label.bbcode_text = information["message"]
+
+func _hide_information(information_name):
+	var information = available_information[information_name]
+	available_information.erase(information_name)
+	hidden_information[information_name] = information

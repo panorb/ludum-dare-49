@@ -18,7 +18,7 @@ var current_chapter = ""
 
 signal text_ended(timing)
 signal chapter_ended(chapter_id)
-signal information_passed(information_name, timings_index)
+signal information_passed(timing, timings_index)
 
 var chapter_ended_signal_sended = false
 
@@ -105,7 +105,7 @@ func _on_text_ended(index):
 
 	emit_signal("text_ended", subtitles["timing"][index])
 	if "information" in subtitles["timing"][index]:
-		emit_signal("information_passed", subtitles["timing"][index]["information"], index)
+		emit_signal("information_passed", subtitles["timing"][index], index)
 
 func _set_start_cursor(index: int) -> void:
 	var censor_interval = {
