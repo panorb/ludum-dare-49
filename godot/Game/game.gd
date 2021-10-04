@@ -18,7 +18,7 @@ var censor_button_down = false
 func _ready():
 	playback.load_character("russian-officer")
 	censor_button.enabled = false
-	_start_chapter("ending-bad")
+	_start_chapter("beginning")
 	
 	playback.connect("chapter_ended", self, "_on_chapter_playback_ended")
 	evaluation.connect("evaluation_finished", self, "_on_chapter_evaluation_finished")
