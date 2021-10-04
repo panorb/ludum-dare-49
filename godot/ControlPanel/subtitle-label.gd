@@ -129,21 +129,31 @@ func _create_upcoming_lines():
 				var formatted_text_element = text_element
 				
 				if "censored_intervals" in subtitles_dict[index].keys():
-					var left = 0
-					var right = 0
-					for interval in subtitles_dict[index]["censored_intervals"]:
-						left = interval["start_position"]
-						formatted_text_element += text_element.substr(right, left - right)
-						right = interval["end_position"]
-						formatted_text_element += "[color=#000F00]" + text_element.substr(left, right-left) \
-													+ "[/color]"
-						formatted_text_element += text_element.substr(right)
+					formatted_text_element = ""
+					
+					for i in len(text_element):
+						var c = text_element[i]
+						
+						if _is_censored(i, subtitles_dict[index]["censored_intervals"]):
+							formatted_text_element += "[color=#000F00]" + c + "[/color]"
+						else:
+							formatted_text_element += c
 				
 				line = PoolStringArray([line, formatted_text_element]).join(" ")
 				index += 1
 				
-		lines[line_index].bbcode_text = line
+		lines[line_index].bbcode_text = "[center]" + line + "[/center]"
 
+func _is_censored(index, intervals):
+	for interval in intervals:
+		if "end_position" in interval:
+			if index >= interval["start_position"] and index <= interval["end_position"]:
+				return true
+		else:
+			if index >= interval["start_position"] and index <= last_cursor_position:
+				return true
+		
+	return false
 
 func _render_text():
 	if not animation_player.is_playing():
@@ -178,48 +188,21 @@ func _update_current_line():
 		var text_element = subtitles_dict[index]["text"]
 		var formatted_text_element = ""
 
-		var left = 0
-		var right = 0
-		
-		if "censored_intervals" in subtitles_dict[index].keys():
-			for interval in subtitles_dict[index]["censored_intervals"]:
-				left = interval["start_position"]
-				if index == current_index:
-					# Cursor position passed
-					if left >= last_cursor_position and right <= last_cursor_position:
-						formatted_text_element  += text_element.substr(right, last_cursor_position - right)
-						formatted_text_element += "[/color]"
-						formatted_text_element += text_element.substr(last_cursor_position, left-last_cursor_position)
-					else:
-						formatted_text_element += text_element.substr(right, left - right)
-
-					# If no end position key is present, the text is censored until the current cursor position
-					if not "end_position" in interval.keys():
-						right = last_cursor_position
-					else:
-						right = interval["end_position"]
-		
-					# Cursor is inside the current censored interval
-					if left < last_cursor_position and right >= last_cursor_position:
-						# Split the censor color tags to insert the closing cursor color tag
-						formatted_text_element += "[color=#000F00]" + text_element.substr(left, last_cursor_position-left) + "[/color]"
-						formatted_text_element += "[/color]"
-						formatted_text_element += "[color=#000F00]" + text_element.substr(last_cursor_position, right-last_cursor_position) + "[/color]"
-				else:
-					formatted_text_element += text_element.substr(right, left - right)
-					right = interval["end_position"]
-					formatted_text_element += "[color=#000F00]" + text_element.substr(left, right-left) \
-											+ "[/color]"
+		for i in len(text_element):
+			var c = text_element[i]
 			
-		if index == current_index and (right < last_cursor_position):
-			formatted_text_element += text_element.substr(right, last_cursor_position-right)
-			formatted_text_element += "[/color]"
-			formatted_text_element += text_element.substr(last_cursor_position)
-		else:
-			formatted_text_element += text_element.substr(right)
+			if "censored_intervals" in subtitles_dict[index].keys() and \
+				_is_censored(i, subtitles_dict[index]["censored_intervals"]):
+				formatted_text_element += "[color=#000F00]" + c + "[/color]"
+			elif index < current_index:
+				formatted_text_element +=  "[color=#FF0000]" + c + "[/color]"
+			elif index == current_index and i < last_cursor_position:
+				formatted_text_element +=  "[color=#FF0000]" + c + "[/color]"
+			else:
+				formatted_text_element += c
 
 		line = PoolStringArray([line, formatted_text_element]).join(" ")
 		index += 1
 	
-	lines[0].bbcode_text = "[color=#FF0000]" + line
+	lines[0].bbcode_text = "[center]" + line + "[/center]"
 
