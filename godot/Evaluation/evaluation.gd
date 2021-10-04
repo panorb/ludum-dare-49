@@ -7,8 +7,13 @@ var available_information : Dictionary = {}
 var hidden_information : Dictionary = {}
 var leaked_information : Dictionary = {}
 
+var penalty_score : int = 0
+
+signal evaluation_finished(chapter_id, penalty_score)
+
 func _ready():
 	playback.connect("information_passed", self, "_on_information_passed")
+	playback.connect("chapter_ended", self, "_on_chapter_ended")
 
 func initialize(data, character_name):
 	playback.initialize(data, character_name)
@@ -29,6 +34,7 @@ func initialize(data, character_name):
 	for information_name in available_information.keys():
 		if "barrier" in available_information[information_name]:
 			available_information[information_name]["censor_points"] = 0
+	penalty_score = 0
 	
 func play_chapter(chapter_id : String) -> void:
 	playback.play_chapter(chapter_id)
@@ -110,6 +116,9 @@ func _leak_information(information_name):
 		for information_replaced in information["replaces"]:
 			leaked_information.erase(information_replaced)
 
+	if "penalty" in information:
+		penalty_score += information["penalty"]
+
 	_print_leaked_information()
 
 func _hide_information(information_name):
@@ -123,3 +132,7 @@ func _print_leaked_information():
 		line = PoolStringArray([line, leaked_information[information_name]["message"]]).join(", ")
 	
 	leaked_information_label.bbcode_text = line
+
+func _on_chapter_ended(chapter_id, _subtitles) -> void:
+	emit_signal("evaluation_finished", chapter_id, penalty_score)
+	
