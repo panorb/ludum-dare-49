@@ -14,7 +14,7 @@
     },
     "example-intro": {
       "start": 61.3,
-      "end": 70.0,
+      "end": 70.0
     },
     "example": {
       "start": 70.2,
@@ -687,14 +687,14 @@
       "start": 86.866,
       "end": 87.120,
       "text": "rabbit",
-      "segment": 18
+      "segment": 18,
+      "information": "food-ingredient"
     },
     {
       "start": 87.120,
       "end": 88.413,
       "text": "it was -",
-      "segment": 18,
-      "information": "food-ingredient"
+      "segment": 18
     },
     {
       "start": 88.413,
