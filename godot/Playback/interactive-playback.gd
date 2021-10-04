@@ -17,6 +17,9 @@ func _ready():
 	play_chapter("good-luck")
 
 func start_censoring():
+	if censoring:
+		return
+	
 	censoring = true
 	audio_stream_player.volume_db = -30
 	white_noise_player.play()   
@@ -27,6 +30,9 @@ func start_censoring():
 		_set_start_cursor(last_index)	
 
 func stop_censoring():
+	if not censoring:
+		return
+	
 	censoring = false
 	audio_stream_player.volume_db = 0
 	white_noise_player.stop()
