@@ -3,6 +3,7 @@ extends VBoxContainer
 signal text_started
 signal text_ended(elapsed_time)
 
+var chapters_dict : Dictionary = {}
 var subtitles_dict : Array = []
 var animation_name : String = "Subtitles"
 var current_animation : Animation = null
@@ -11,7 +12,8 @@ var method_track_index_end : int = 1
 var current_segment_id: int = -1
 var current_index : int = 0
 var preset_formatting : Dictionary = {}
-var last_cursor_position : int = 0 
+var last_cursor_position : int = 0
+var current_chapter : String = ""
 
 onready var animation_player = get_node("AnimationPlayer")
 onready var lines = [get_node("Line1"), get_node("Line2"), get_node("Line3")]
@@ -26,6 +28,7 @@ func _process(_delta):
 func map_subtitles_to_animation(subtitles_json):
 	current_index = 0
 	subtitles_dict = subtitles_json["timing"]
+	chapters_dict = subtitles_json["chapter"]
 
 	var duration = _subtitles_duration()
 	current_animation = Animation.new()
@@ -55,7 +58,10 @@ func update_censored_intervals(index : int, censored_intervals : Array):
 	
 	subtitles_dict[index]["censored_intervals"] = censored_intervals
 
-func start_subtitles(from_position : float = 0.0):
+func start_subtitles(chapter : String):
+	current_chapter = chapter
+	var from_position : float = chapters_dict[current_chapter]["start"]
+	
 	animation_player.set_current_animation(animation_name)
 	animation_player.seek(from_position)
 	animation_player.play()
@@ -121,6 +127,9 @@ func _generate_segment_bbcode(segment_id):
 		timing_index += 1
 	
 	var line = ""
+	
+	if timing_index < subtitles_dict.size() and subtitles_dict[timing_index]["start"] >= chapters_dict[current_chapter]["end"]:
+		return line
 	
 	while timing_index < subtitles_dict.size() and \
 		subtitles_dict[timing_index]["segment"] == segment_id:
