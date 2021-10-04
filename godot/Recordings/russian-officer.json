@@ -12,8 +12,12 @@
       "start": 55.0,
       "end": 59.4
     },
-    "example": {
+    "example-intro": {
       "start": 61.3,
+      "end": 70.0,
+    },
+    "example": {
+      "start": 70.2,
       "end": 98.4
     },
     "example-success": {

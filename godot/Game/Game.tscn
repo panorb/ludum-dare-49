@@ -3,7 +3,7 @@
 [ext_resource path="res://Game/game.gd" type="Script" id=1]
 [ext_resource path="res://Playback/Playback.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Game/RepeatChoice/RepeatChoice.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Game/EnergyVisualizer/EnergyVisualizer.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Game/EnergyMeter/EnergyMeter.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Game/CensorButton/CensorButton.tscn" type="PackedScene" id=5]
 
 [node name="Game" type="Control"]
@@ -28,19 +28,22 @@ margin_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="EnergyVisualizer" parent="." instance=ExtResource( 4 )]
+[node name="EnergyMeter" parent="." instance=ExtResource( 4 )]
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -295.0
-margin_top = -415.0
-margin_right = -12.0
-margin_bottom = -12.0
-grow_horizontal = 0
-grow_vertical = 0
+margin_left = -125.0
+margin_top = -230.0
+margin_right = -20.0
+margin_bottom = -20.0
+mouse_filter = 2
+value = 1000.0
 
 [node name="RepeatChoice" parent="." instance=ExtResource( 3 )]
+mouse_filter = 0
 
+[connection signal="button_down" from="CensorButton" to="." method="_on_CensorButton_button_down"]
+[connection signal="button_up" from="CensorButton" to="." method="_on_CensorButton_button_up"]
 [connection signal="proceed_selected" from="RepeatChoice" to="." method="_on_RepeatChoice_proceed_selected"]
 [connection signal="repeat_selected" from="RepeatChoice" to="." method="_on_RepeatChoice_repeat_selected"]

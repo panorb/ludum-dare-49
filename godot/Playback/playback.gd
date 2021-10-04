@@ -1,15 +1,15 @@
 extends Control
 
-onready var subtitles_container = get_node("MarginContainer/VBoxContainer/SubtitlesContainer")
+onready var subtitles_container = get_node("MarginContainer/SubtitlesContainer")
 onready var json_file_parser = get_node("JsonFileParser")
 onready var audio_stream_player = get_node("AudioStreamPlayer")
-onready var censor_button = get_node("MarginContainer/VBoxContainer/CensorButton")
+onready var white_noise_player = get_node("WhiteNoisePlayer")
 
 export(String) var filename_subtitles
 export(String) var filename_recording
 
 var subtitles = null
-var censor_button_down : bool = false
+var censoring : bool = false
 var last_index : int = -1
 var timestamp = null
 var time_pressed : float = 0.0
@@ -59,45 +59,41 @@ func _process(_delta):
 func _ready():
 	subtitles_container.connect("text_started", self, "_on_text_started")
 	subtitles_container.connect("text_ended", self, "_on_text_ended")
-	
-	censor_button.connect("button_down", self, "_on_CensorButton_down")
-	censor_button.connect("button_up", self, "_on_CensorButton_up")
 
 	load_character("russian-officer")
 	play_chapter("good-luck")
 
-func _on_CensorButton_down():
-	censor_button_down = true
+func start_censoring():
+	censoring = true
+	audio_stream_player.volume_db = -30
+	white_noise_player.play()
+	
 	if last_index < 0:
 		return
 	if subtitles["timing"][last_index]["status"] == "running":
-		subtitles["timing"][last_index]["last_pressed"] = OS.get_ticks_msec()
 		_set_start_cursor(last_index)	
 
-func _on_CensorButton_up():
-	censor_button_down = false
+func stop_censoring():
+	censoring = false
+	audio_stream_player.volume_db = 0
+	white_noise_player.stop()
+	
 	if last_index < 0:
 		return
 	if subtitles["timing"][last_index]["status"] == "running":
-		subtitles["timing"][last_index]["time_pressed"] = subtitles["timing"][last_index]["time_pressed"] \
-												+ OS.get_ticks_msec() - subtitles["timing"][last_index]["last_pressed"]
 		_set_end_cursor(last_index)
 	
 func _on_text_started(index):
 	last_index = index
 	subtitles["timing"][last_index]["status"] = "running"
-	subtitles["timing"][last_index]["time_pressed"] = 0
 	
-	if censor_button_down:
-		subtitles["timing"][last_index]["last_pressed"] = OS.get_ticks_msec()
+	if censoring:
 		_set_start_cursor(index)
 	
 func _on_text_ended(index):
 	subtitles["timing"][index]["status"] = "finished"
 	
-	if censor_button_down:
-		subtitles["timing"][index]["time_pressed"] = subtitles["timing"][index]["time_pressed"] \
-												+ OS.get_ticks_msec()- subtitles["timing"][index]["last_pressed"]
+	if censoring:
 		_set_end_cursor(index)
 	
 	var coverage = round(subtitles["timing"][index]["time_pressed"] \
@@ -111,17 +107,19 @@ func _set_start_cursor(index: int) -> void:
 	var censor_interval = {
 		"start_position": subtitles_container.last_cursor_position
 	}
-	if not "censor_intervals" in subtitles["timing"][index].keys():
-		subtitles["timing"][index]["censor_intervals"] = [censor_interval]
+	if not "censored_intervals" in subtitles["timing"][index].keys():
+		subtitles["timing"][index]["censored_intervals"] = [censor_interval]
 	else:
-		subtitles["timing"][index]["censor_intervals"].append(censor_interval)
-	subtitles_container.update_censored_intervals(index, subtitles["timing"][index]["censor_intervals"])
+		subtitles["timing"][index]["censored_intervals"].append(censor_interval)
+	subtitles_container.update_censored_intervals(index, subtitles["timing"][index]["censored_intervals"])
+
 func _set_end_cursor(index: int) -> void:
+	print("CALLED")
 	var cursor_position = subtitles_container.last_cursor_position
 	
 	if subtitles["timing"][index]["status"] == "finished":
 		cursor_position = subtitles["timing"][index]["text"].length()
-	
-	subtitles["timing"][index]["censor_intervals"][-1]["end_position"] \
+
+	subtitles["timing"][index]["censored_intervals"][-1]["end_position"] \
 		= cursor_position
-	subtitles_container.update_censored_intervals(index, subtitles["timing"][index]["censor_intervals"])
+	subtitles_container.update_censored_intervals(index, subtitles["timing"][index]["censored_intervals"])
