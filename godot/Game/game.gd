@@ -15,7 +15,7 @@ var censor_button_down = false
 func _ready():
 	playback.load_character("russian-officer")
 	censor_button.enabled = false
-	playback.play_chapter("example-success")
+	_start_chapter("example")
 	
 	playback.connect("chapter_ended", self, "_on_chapter_ended")
 
@@ -51,10 +51,11 @@ func _on_chapter_ended(chapter_id : String, saved_data : Dictionary) -> void:
 	
 	if chapter_id == "example":
 		# TODO: Auswertung hier einfügen
+		playback.hide()
 		evaluation.initialize(saved_data, "russian-officer")
 		evaluation.play_chapter(chapter_id)
 		# TODO: Richtige Voicezeile (Success oder Failure) als Anmerkung des Officers auswählen
-		_start_chapter("example-failure")
+		#_start_chapter("example-failure")
 	
 	if chapter_id == "example-failure":
 		repeat_choice.present()

@@ -10,9 +10,8 @@ var leaked_information : Dictionary = {}
 func _ready():
 	playback.connect("information_passed", self, "_on_information_passed")
 
-func initialize(data):
-	# FIXME Is the character name correct?
-	playback.initialize(data, "russian-officer")
+func initialize(data, character_name):
+	playback.initialize(data, character_name)
 	
 	# Add all information
 	for information_name in data["information"].keys():
@@ -22,15 +21,15 @@ func initialize(data):
 		available_information[information_name] = information
 
 	# Map the corresponding indices of timing
-	for index in data["timings"].size():
-		if "information" in data["timings"][index]:
-			var information_name = data["timings"][index]["information"]
+	for index in data["timing"].size():
+		if "information" in data["timing"][index]:
+			var information_name = data["timing"][index]["information"]
 			available_information[information_name]["timings_left"].append(index)
 
 	for information_name in available_information.keys():
 		if "barrier" in available_information[information_name]:
 			available_information[information_name]["censor_points"] = 0
-
+	
 func play_chapter(chapter_id : String) -> void:
 	playback.play_chapter(chapter_id)
 
@@ -78,9 +77,9 @@ func _was_leaked(information_name):
 		if not information["timings_left"].empty():
 			return false
 		if information["censor_points"] >= information["barrier"]:
-			return true
-		else:
 			return false
+		else:
+			return true
 
 	elif "requires" in information:
 		for requirement in information["requires"]:
@@ -93,10 +92,10 @@ func _get_censor_points(timing):
 	if not "censored_intervals" in timing:
 		return 0
 	var sum = 0
-	for interval in timing["censored_interval"]:
+	for interval in timing["censored_intervals"]:
 		sum += interval["end_position"] - interval["start_position"]
 	
-	var percentage = (sum / (timing["end"] - timing["start"])) * 100
+	var percentage = (sum / timing["text"].length()) * 100
 	var censor_points = percentage
 	if "multiplier" in timing:
 		censor_points = timing["multiplier"] * censor_points
@@ -106,10 +105,21 @@ func _leak_information(information_name):
 	var information = available_information[information_name]
 	available_information.erase(information_name)
 	leaked_information[information_name] = information
+	
+	if "replaces" in information:
+		for information_replaced in information["replaced"]:
+			leaked_information.erase(information_replaced)
 
-	leaked_information_label.bbcode_text = information["message"]
+	_print_leaked_information()
 
 func _hide_information(information_name):
 	var information = available_information[information_name]
 	available_information.erase(information_name)
 	hidden_information[information_name] = information
+
+func _print_leaked_information():
+	var line = ""
+	for information in leaked_information.keys():
+		line = PoolStringArray([line, information["message"]]).join(", ")
+	
+	leaked_information_label.bbcode_text = line
