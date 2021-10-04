@@ -5,6 +5,8 @@ onready var repeat_choice = get_node("RepeatChoice")
 onready var censor_button = get_node("CensorButton")
 onready var energy_meter = get_node("EnergyMeter")
 onready var evaluation = get_node("Evaluation")
+onready var ending_screen = get_node("EndingScreen")
+
 
 export(int) var energy_regeneration_multiplier = 170
 export(int) var energy_depletion_multiplier = 520
@@ -15,7 +17,7 @@ var censor_button_down = false
 func _ready():
 	playback.load_character("russian-officer")
 	censor_button.enabled = false
-	_start_chapter("example")
+	_start_chapter("beginning")
 	
 	playback.connect("chapter_ended", self, "_on_chapter_playback_ended")
 	evaluation.connect("evaluation_finished", self, "_on_chapter_evaluation_finished")
@@ -28,8 +30,7 @@ func _process(delta):
 			playback.stop_censoring()
 	else:
 		energy_meter.value +=  energy_regeneration_multiplier * delta
-		
-		
+
 
 var censorship_allowed = ["example", "segment-1", "segment-2", "segment-3"]
 
@@ -83,6 +84,18 @@ func _on_chapter_playback_ended(chapter_id : String, saved_data : Dictionary) ->
 	# Amerikanisches Hauptspiel
 	if chapter_id in ["segment-1", "segment-2", "segment-3"]:
 		_start_evaluation(chapter_id, saved_data, "american-spy")
+	
+	if chapter_id == "ending-good":
+		ending_screen.fade_in("GOOD ENDING\nYou can close the game now.")
+	
+	if chapter_id == "ending-neutral":
+		ending_screen.fade_in("NEUTRAL ENDING\nYou can close the game now.")
+	
+	if chapter_id == "ending-bad":
+		ending_screen.fade_in("BAD ENDING\nYou can close the game now.")
+	
+	if chapter_id == "ending-wtf":
+		ending_screen.fade_in("WTF ENDING\nYou can close the game now.")
 
 var total_american_penalty := 0
 

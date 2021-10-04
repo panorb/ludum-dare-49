@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Shared/Fonts/jelle-bold-48.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Game/EndingScreen/ending-screen.gd" type="Script" id=2]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform float height = 5.0;
+uniform float curve = 0.3;
+uniform float speed = 2.0;
+
+void vertex() {
+    VERTEX.y += height*sin(VERTEX.x*curve+TIME*speed);
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+shader_param/height = 5.0
+shader_param/curve = 0.3
+shader_param/speed = 2.0
+
+[node name="EndingScreen" type="ColorRect"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+material = SubResource( 2 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 1 )
+text = "GOOD ENDING
+You can close the game now."
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="."]
