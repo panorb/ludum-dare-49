@@ -74,6 +74,16 @@ func _information_completed(information_name):
 	for information in available_information:
 		if _was_leaked(information):
 			_leak_information(information)
+		else:
+			if "requires" in information:
+				var all_requirements_passed := true
+				for requirement in information["requires"]:
+					if requirement in available_information:
+						all_requirements_passed = false
+						break
+				if all_requirements_passed:
+					_hide_information(information)
+		
 
 
 func _was_leaked(information_name):
@@ -89,9 +99,9 @@ func _was_leaked(information_name):
 		if not information["timings_left"].empty():
 			return false
 		if information["censor_points"] >= information["barrier"]:
-			return false
-		else:
 			return true
+		else:
+			return false
 
 	elif "requires" in information:
 		for requirement in information["requires"]:
@@ -108,7 +118,7 @@ func _get_censor_points(timing):
 		sum += interval["end_position"] - interval["start_position"]
 	
 	var percentage = (sum / timing["text"].length()) * 100
-	var censor_points = percentage
+	var censor_points = 100 - percentage
 	if "multiplier" in timing:
 		censor_points = timing["multiplier"] * censor_points
 	return censor_points
@@ -122,9 +132,7 @@ func _leak_information(information_name):
 		for information_replaced in information["replaces"]:
 			leaked_information.erase(information_replaced)
 
-	if "penalty" in information:
-		penalty_score += information["penalty"]
-
+	_update_penalty_score()
 	_print_leaked_information()
 
 func _hide_information(information_name):
@@ -142,3 +150,9 @@ func _print_leaked_information():
 func _on_chapter_ended(chapter_id, _subtitles) -> void:
 	emit_signal("evaluation_finished", chapter_id, penalty_score)
 	
+func _update_penalty_score():
+	var penalty = 0
+	for information_name in leaked_information.keys():
+		if "penalty" in leaked_information[information_name]:
+			penalty += leaked_information[information_name]["penalty"]
+	return penalty
