@@ -9,6 +9,7 @@ var leaked_information : Dictionary = {}
 
 var penalty_score : int = 0
 
+signal leaked_info_updated(text)
 signal evaluation_finished(chapter_id, penalty_score)
 
 func _ready():
@@ -19,7 +20,8 @@ func initialize(data, character_name):
 	available_information = {}
 	hidden_information = {}
 	leaked_information = {}
-	leaked_information_label.bbcode_text = ""
+	
+	emit_signal("leaked_info_updated", "")
 	
 	penalty_score = 0
 	
@@ -144,9 +146,9 @@ func _hide_information(information_name):
 func _print_leaked_information():
 	var line = ""
 	for information_name in leaked_information.keys():
-		line = PoolStringArray([line, leaked_information[information_name]["message"]]).join(", ")
+		line = PoolStringArray([line, "- " + leaked_information[information_name]["message"]]).join("\n")
 	
-	leaked_information_label.bbcode_text = line
+	emit_signal("leaked_info_updated", line)
 
 func _on_chapter_ended(chapter_id, _subtitles) -> void:
 	emit_signal("evaluation_finished", chapter_id, penalty_score)

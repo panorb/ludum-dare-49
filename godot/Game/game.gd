@@ -1,12 +1,13 @@
 extends GameScene
 
-onready var playback = get_node("Playback")
+onready var section_label = get_node("VBoxContainer/SectionLabel")
+onready var playback = get_node("VBoxContainer/Playback")
 onready var repeat_choice = get_node("RepeatChoice")
 onready var censor_button = get_node("CensorButton")
 onready var energy_meter = get_node("EnergyMeter")
-onready var evaluation = get_node("Evaluation")
+onready var evaluation = get_node("VBoxContainer/Evaluation")
 onready var ending_screen = get_node("EndingScreen")
-
+onready var leaked_info_display = get_node("LeakedInfoDisplay")
 
 export(int) var energy_regeneration_multiplier = 170
 export(int) var energy_depletion_multiplier = 520
@@ -17,10 +18,11 @@ var censor_button_down = false
 func _ready():
 	playback.load_character("russian-officer")
 	censor_button.enabled = false
-	_start_chapter("beginning")
+	_start_chapter("example")
 	
 	playback.connect("chapter_ended", self, "_on_chapter_playback_ended")
 	evaluation.connect("evaluation_finished", self, "_on_chapter_evaluation_finished")
+	evaluation.connect("leaked_info_updated", self, "_on_leaked_info_updated")
 
 func _process(delta):
 	if censor_button_down:
@@ -31,19 +33,33 @@ func _process(delta):
 	else:
 		energy_meter.value +=  energy_regeneration_multiplier * delta
 
+func _on_leaked_info_updated(text):
+	leaked_info_display.text = text
 
 var censorship_allowed = ["example", "segment-1", "segment-2", "segment-3"]
 
 func _start_chapter(chapter_id):
 	evaluation.visible = false
 	playback.visible = true
+	if leaked_info_display.modulate == Color(1, 1, 1, 1):
+		leaked_info_display.fade_out()
+	
+	if chapter_id in censorship_allowed:
+		section_label.text = "SHOWTIME"
+	elif "ending" in chapter_id:
+		section_label.text = "ENDING"
+	else:
+		section_label.text = "INTRODUCTION"
 	
 	censor_button.enabled = chapter_id in censorship_allowed
 	playback.play_chapter(chapter_id)
 
 func _start_evaluation(chapter_id : String, saved_data : Dictionary, character_name : String) -> void:
+	section_label.text = "EVALUATION"
+	
 	playback.visible = false
 	evaluation.visible = true
+	leaked_info_display.fade_in()
 	
 	censor_button.enabled = false
 	
