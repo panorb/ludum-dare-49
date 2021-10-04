@@ -1,0 +1,857 @@
+{
+  "chapter": {
+    "segment-1": {
+      "start": 0.0,
+      "end": 54.6
+    },
+    "segment-2": {
+      "start": 55.0,
+      "end": 99.7
+    },
+    "segment-3": {
+      "start": 99.8,
+      "end": 132.9
+    }
+  },
+  "information": {
+    "defector-present": {
+      "barrier": 75,
+      "message": "Leaked that there is an american defector",
+      "penalty": 1
+    },
+    "defector-name": {
+      "barrier": 80,
+      "message": "A name was dropped in a suspicious context",
+      "penalty": 1
+    },
+    "defector-leaked": {
+      "requires": [
+        "defector-present",
+        "defector-name"
+      ],
+      "replaces": [
+        "defector-present",
+        "defector-name"
+      ],
+      "message": "Leaked the name of an american defector",
+      "penalty": 4
+    },
+    "missile-accuracy": {
+      "barrier": 150,
+      "message": "Leaked that USSR missiles have not gotten more accurate",
+      "penalty": 3
+    },
+    "infighting": {
+      "barrier": 30,
+      "message": "Leaked that their is infighting about something",
+      "penalty": 1
+    },
+    "media-agenda": {
+      "barrier": 180,
+      "message": "Leaked that media outlets don't follow agenda",
+      "replaces": [
+        "infighting"
+      ],
+      "penalty": 2
+    },
+    "media-supression": {
+      "barrier": 85,
+      "message": "Leaked that media surpression is planned",
+      "penalty": 3
+    },
+    "europe-threatless": {
+      "barrier": 775,
+      "message": "Leaked that there is no immediate threat to Europe",
+      "penalty": 2
+    }
+  },
+  "timing": [
+    {
+      "start": 0.65,
+      "end": 1.809,
+      "text": "Thank you very much",
+      "segment": 1
+    },
+    {
+      "start": 1.81,
+      "end": 3.046,
+      "text": "for conveying the President's",
+      "segment": 1
+    },
+    {
+      "start": 3.045,
+      "end": 4.488,
+      "text": "questions, General Taylor.",
+      "segment": 1
+    },
+    {
+      "start": 5.355,
+      "end": 5.855,
+      "text": "You are right,",
+      "segment": 2
+    },
+    {
+      "start": 5.855,
+      "end": 6.355,
+      "text": "General,",
+      "segment": 2
+    },
+    {
+      "start": 7.389,
+      "end": 8.59,
+      "text": "a first strike against",
+      "segment": 2
+    },
+    {
+      "start": 8.59,
+      "end": 10.129,
+      "text": "the Soviet Union would indeed",
+      "segment": 2
+    },
+    {
+      "start": 10.13,
+      "end": 11.519,
+      "text": "be dangerous for urban",
+      "segment": 2
+    },
+    {
+      "start": 11.519,
+      "end": 12.74,
+      "text": "and civilian areas.",
+      "segment": 2
+    },
+    {
+      "start": 12.74,
+      "end": 13.24,
+      "text": "The",
+      "segment": 3
+    },
+    {
+      "start": 13.24,
+      "end": 14.8,
+      "text": "consequences could no doubt",
+      "segment": 3
+    },
+    {
+      "start": 14.8,
+      "end": 15.809,
+      "text": "be severe.",
+      "segment": 3
+    },
+    {
+      "start": 15.808,
+      "end": 16.362,
+      "text": "Although,",
+      "segment": 4
+    },
+    {
+      "start": 16.809,
+      "end": 17.97,
+      "text": "I am hesitant to admit",
+      "segment": 4
+    },
+    {
+      "start": 17.969,
+      "end": 19.055,
+      "text": "that I agree with",
+      "segment": 4
+    },
+    {
+      "start": 19.056,
+      "end": 19.822,
+      "text": "Agent Miller",
+      "segment": 4,
+      "information": "defector-name"
+    },
+    {
+      "start": 20.045,
+      "end": 20.824,
+      "text": "who at this point",
+      "segment": 4
+    },
+    {
+      "start": 20.911,
+      "end": 21.411,
+      "text": "can be",
+      "segment": 4
+    },
+    {
+      "start": 21.411,
+      "end": 21.955,
+      "text": "considered a",
+      "segment": 4
+    },
+    {
+      "start": 21.955,
+      "end": 22.521,
+      "text": "deserter.",
+      "segment": 4,
+      "information": "defector-present"
+    },
+    {
+      "start": 22.871,
+      "end": 23.371,
+      "text": "Anyway,",
+      "segment": 5
+    },
+    {
+      "start": 23.76,
+      "end": 25.103,
+      "text": "I assume our great",
+      "segment": 5
+    },
+    {
+      "start": 25.103,
+      "end": 26.966,
+      "text": "American long-range missiles",
+      "segment": 5
+    },
+    {
+      "start": 26.966,
+      "end": 28.92,
+      "text": "have developed significantly",
+      "segment": 5
+    },
+    {
+      "start": 28.92,
+      "end": 30.2,
+      "text": "and can now take quite accurate",
+      "segment": 5
+    },
+    {
+      "start": 30.201,
+      "end": 30.701,
+      "text": "aim,",
+      "segment": 5
+    },
+    {
+      "start": 30.899,
+      "end": 31.399,
+      "text": "can't they?",
+      "segment": 5
+    },
+    {
+      "start": 31.833,
+      "end": 32.835,
+      "text": "You are certainly better",
+      "segment": 6
+    },
+    {
+      "start": 32.835,
+      "end": 33.335,
+      "text": "qualified",
+      "segment": 6
+    },
+    {
+      "start": 33.335,
+      "end": 34.072,
+      "text": "than I am to",
+      "segment": 6
+    },
+    {
+      "start": 34.073,
+      "end": 35.623,
+      "text": "assess our capabilities.",
+      "segment": 6
+    },
+    {
+      "start": 36.121,
+      "end": 37.002,
+      "text": "In any case,",
+      "segment": 7
+    },
+    {
+      "start": 37.152,
+      "end": 37.753,
+      "text": "we should",
+      "segment": 7
+    },
+    {
+      "start": 37.753,
+      "end": 38.761,
+      "text": "check with engineers",
+      "segment": 7
+    },
+    {
+      "start": 38.762,
+      "end": 40.7,
+      "text": "about how European satellites",
+      "segment": 7
+    },
+    {
+      "start": 40.7,
+      "end": 42.208,
+      "text": "and mainland China",
+      "segment": 7
+    },
+    {
+      "start": 42.207,
+      "end": 43.177,
+      "text": "can be spared from",
+      "segment": 7
+    },
+    {
+      "start": 43.177,
+      "end": 44.057,
+      "text": "collateral damage.",
+      "segment": 7
+    },
+    {
+      "start": 44.32,
+      "end": 44.82,
+      "text": "There is no need",
+      "segment": 8
+    },
+    {
+      "start": 44.82,
+      "end": 45.669,
+      "text": "to jump the gun",
+      "segment": 8
+    },
+    {
+      "start": 45.67,
+      "end": 46.17,
+      "text": "on that.",
+      "segment": 8
+    },
+    {
+      "start": 46.308,
+      "end": 47.093,
+      "text": "As far as I've",
+      "segment": 9
+    },
+    {
+      "start": 47.094,
+      "end": 47.594,
+      "text": "observed,",
+      "segment": 9
+    },
+    {
+      "start": 47.909,
+      "end": 48.909,
+      "text": "the USSR",
+      "segment": 9,
+      "information": "missile-accuracy"
+    },
+    {
+      "start": 48.909,
+      "end": 49.409,
+      "text": "has still",
+      "segment": 9
+    },
+    {
+      "start": 49.409,
+      "end": 50.935,
+      "text": "not had much success",
+      "segment": 9,
+      "information": "missile-accuracy"
+    },
+    {
+      "start": 51.225,
+      "end": 51.906,
+      "text": "in landing this kind",
+      "segment": 9
+    },
+    {
+      "start": 51.906,
+      "end": 53.105,
+      "text": "of missiles with a",
+      "segment": 9
+    },
+    {
+      "start": 53.106,
+      "end": 54.481,
+      "text": "decent degree of accuracy.",
+      "segment": 9
+    },
+    {
+      "start": 55.142,
+      "end": 56.24,
+      "text": "I've come to notice",
+      "segment": 10
+    },
+    {
+      "start": 56.24,
+      "end": 57.128,
+      "text": "that there is much",
+      "segment": 10
+    },
+    {
+      "start": 57.128,
+      "end": 58.795,
+      "text": "infighting and disagreement",
+      "segment": 10,
+      "information": "infighting"
+    },
+    {
+      "start": 58.795,
+      "end": 59.67,
+      "text": "about the media",
+      "segment": 10
+    },
+    {
+      "start": 59.67,
+      "end": 60.17,
+      "text": "between the",
+      "segment": 10
+    },
+    {
+      "start": 60.17,
+      "end": 60.963,
+      "text": "Soviet Union",
+      "segment": 10
+    },
+    {
+      "start": 60.963,
+      "end": 61.464,
+      "text": "and its",
+      "segment": 10
+    },
+    {
+      "start": 61.463,
+      "end": 62.241,
+      "text": "satellite states.",
+      "segment": 10
+    },
+    {
+      "start": 62.465,
+      "end": 63.074,
+      "text": "There are still",
+      "segment": 11
+    },
+    {
+      "start": 63.073,
+      "end": 63.999,
+      "text": "media outlets which",
+      "segment": 11,
+      "information": "media-agenda"
+    },
+    {
+      "start": 64.0,
+      "end": 65.096,
+      "text": "refuse to follow",
+      "segment": 11,
+      "information": "media-agenda"
+    },
+    {
+      "start": 65.096,
+      "end": 65.931,
+      "text": "politburo's",
+      "segment": 11,
+      "information": "media-agenda"
+    },
+    {
+      "start": 65.93,
+      "end": 66.447,
+      "text": "agenda.",
+      "segment": 11,
+      "information": "media-agenda"
+    },
+    {
+      "start": 66.686,
+      "end": 67.186,
+      "text": "The committee",
+      "segment": 12
+    },
+    {
+      "start": 67.186,
+      "end": 67.899,
+      "text": "is furious",
+      "segment": 12
+    },
+    {
+      "start": 67.9,
+      "end": 68.822,
+      "text": "about their",
+      "segment": 12
+    },
+    {
+      "start": 68.983,
+      "end": 69.759,
+      "text": "-- what they call -",
+      "segment": 12
+    },
+    {
+      "start": 70.0,
+      "end": 71.058,
+      "text": "\"anti-soviet\"",
+      "segment": 12,
+      "information": "media-agenda"
+    },
+    {
+      "start": 71.242,
+      "end": 71.742,
+      "text": "and",
+      "segment": 12
+    },
+    {
+      "start": 71.742,
+      "end": 72.528,
+      "text": "\"anti-social\"",
+      "segment": 12,
+      "information": "media-agenda"
+    },
+    {
+      "start": 72.68,
+      "end": 73.18,
+      "text": "propaganda.",
+      "information": "media-agenda",
+      "multiplier": 0.2,
+      "segment": 12
+    },
+    {
+      "start": 73.778,
+      "end": 74.278,
+      "text": "Also,",
+      "segment": 13
+    },
+    {
+      "start": 74.646,
+      "end": 75.483,
+      "text": "the KGB",
+      "segment": 13
+    },
+    {
+      "start": 75.483,
+      "end": 76.71,
+      "text": "is not exactly known",
+      "segment": 13
+    },
+    {
+      "start": 76.709,
+      "end": 78.131,
+      "text": "for treating opponents",
+      "segment": 13
+    },
+    {
+      "start": 78.132,
+      "end": 79.22,
+      "text": "with kid gloves.",
+      "segment": 13
+    },
+    {
+      "start": 79.219,
+      "end": 79.719,
+      "text": "Therefore,",
+      "segment": 14
+    },
+    {
+      "start": 79.751,
+      "end": 81.044,
+      "text": "I've been wondering for quite",
+      "segment": 14
+    },
+    {
+      "start": 81.045,
+      "end": 81.68,
+      "text": "some time now how",
+      "segment": 14
+    },
+    {
+      "start": 81.68,
+      "end": 82.573,
+      "text": "long they were gonna",
+      "segment": 14
+    },
+    {
+      "start": 82.572,
+      "end": 83.445,
+      "text": "put up with that,",
+      "segment": 14
+    },
+    {
+      "start": 83.581,
+      "end": 84.111,
+      "text": "but now",
+      "segment": 14
+    },
+    {
+      "start": 84.159,
+      "end": 84.659,
+      "text": "they seem",
+      "segment": 14
+    },
+    {
+      "start": 84.659,
+      "end": 85.436,
+      "text": "to tighten the reins",
+      "segment": 14,
+      "information": "media-surpression",
+      "multiplier": 0.5
+    },
+    {
+      "start": 85.436,
+      "end": 86.407,
+      "text": "once and for all.",
+      "segment": 14
+    },
+    {
+      "start": 86.718,
+      "end": 87.718,
+      "text": "There are talks about",
+      "segment": 15
+    },
+    {
+      "start": 87.844,
+      "end": 88.533,
+      "text": "- and I quote -",
+      "segment": 15
+    },
+    {
+      "start": 88.725,
+      "end": 90.278,
+      "text": "\"taking appropriate measures\"",
+      "segment": 15,
+      "information": "media-surpression"
+    },
+    {
+      "start": 90.301,
+      "end": 91.088,
+      "text": "against these",
+      "segment": 15
+    },
+    {
+      "start": 91.087,
+      "end": 92.078,
+      "text": "publications",
+      "segment": 15
+    },
+    {
+      "start": 92.183,
+      "end": 93.327,
+      "text": "- whatever that might mean.",
+      "segment": 15
+    },
+    {
+      "start": 93.703,
+      "end": 94.301,
+      "text": "They do sound",
+      "segment": 16
+    },
+    {
+      "start": 94.301,
+      "end": 95.421,
+      "text": "quite determined, though.",
+      "segment": 16
+    },
+    {
+      "start": 95.731,
+      "end": 96.363,
+      "text": "Maybe there is",
+      "segment": 17
+    },
+    {
+      "start": 96.364,
+      "end": 97.326,
+      "text": "an opportunity",
+      "segment": 17
+    },
+    {
+      "start": 97.325,
+      "end": 98.295,
+      "text": "to take advantage",
+      "segment": 17
+    },
+    {
+      "start": 98.384,
+      "end": 99.521,
+      "text": "of public opinion here.",
+      "segment": 17
+    },
+    {
+      "start": 99.959,
+      "end": 100.459,
+      "text": "Regarding your",
+      "segment": 18
+    },
+    {
+      "start": 100.459,
+      "end": 101.131,
+      "text": "question",
+      "segment": 18
+    },
+    {
+      "start": 101.132,
+      "end": 101.872,
+      "text": "if the Soviet",
+      "segment": 18
+    },
+    {
+      "start": 101.871,
+      "end": 103.769,
+      "text": "Medium Range Ballistic Missiles",
+      "segment": 18
+    },
+    {
+      "start": 103.769,
+      "end": 105.084,
+      "text": "possibly threaten Europe,",
+      "segment": 18,
+      "information": "europe-threatless",
+      "multiplier": 5
+    },
+    {
+      "start": 105.212,
+      "end": 106.509,
+      "text": "well..., to be honest",
+      "segment": 18,
+      "information": "europe-threatless",
+      "multiplier": 0.4
+    },
+    {
+      "start": 106.51,
+      "end": 108.068,
+      "text": "I would not worry too much about it.",
+      "segment": 19,
+      "information": "europe-threatless",
+    },
+    {
+      "start": 108.406,
+      "end": 109.51,
+      "text": "The chances of that are,",
+      "segment": 20
+    },
+    {
+      "start": 109.542,
+      "end": 110.246,
+      "text": "to my mind,",
+      "segment": 20
+    },
+    {
+      "start": 110.388,
+      "end": 111.348,
+      "text": "so remote that it is",
+      "segment": 20,
+      "information": "europe-threatless"
+    },
+    {
+      "start": 111.349,
+      "end": 113.376,
+      "text": "scarcely worth considering.",
+      "segment": 20,
+      "information": "europe-threatless"
+    },
+    {
+      "start": 113.623,
+      "end": 114.54,
+      "text": "If they really intend",
+      "segment": 21
+    },
+    {
+      "start": 114.54,
+      "end": 115.623,
+      "text": "a major aggression,",
+      "segment": 21
+    },
+    {
+      "start": 115.861,
+      "end": 116.374,
+      "text": "they won't do it",
+      "segment": 21,
+      "information": "europe-threatless"
+    },
+    {
+      "start": 116.375,
+      "end": 117.131,
+      "text": "out of the blue.",
+      "segment": 21,
+      "information": "europe-threatless"
+    },
+    {
+      "start": 117.311,
+      "end": 117.871,
+      "text": "They would rather",
+      "segment": 22
+    },
+    {
+      "start": 117.871,
+      "end": 118.419,
+      "text": "look for an",
+      "segment": 22
+    },
+    {
+      "start": 118.42,
+      "end": 119.386,
+      "text": "ambitious situation",
+      "segment": 22
+    },
+    {
+      "start": 119.515,
+      "end": 120.196,
+      "text": "that will make for a",
+      "segment": 22
+    },
+    {
+      "start": 120.195,
+      "end": 121.06,
+      "text": "good excuse.",
+      "segment": 22
+    },
+    {
+      "start": 121.364,
+      "end": 122.762,
+      "text": "The US must not provide",
+      "segment": 23
+    },
+    {
+      "start": 122.762,
+      "end": 123.762,
+      "text": "such a situation",
+      "segment": 23
+    },
+    {
+      "start": 123.762,
+      "end": 125.129,
+      "text": "under any circumstance.",
+      "segment": 23
+    },
+    {
+      "start": 125.387,
+      "end": 125.952,
+      "text": "Bear that in mind",
+      "segment": 24
+    },
+    {
+      "start": 125.951,
+      "end": 126.884,
+      "text": "when making decisions,",
+      "segment": 24
+    },
+    {
+      "start": 126.885,
+      "end": 127.385,
+      "text": "General!",
+      "segment": 24
+    },
+    {
+      "start": 128.044,
+      "end": 128.813,
+      "text": "That's all I have to say",
+      "segment": 25
+    },
+    {
+      "start": 128.813,
+      "end": 129.343,
+      "text": "for now.",
+      "segment": 25
+    },
+    {
+      "start": 129.881,
+      "end": 130.57,
+      "text": "Best regards to",
+      "segment": 26
+    },
+    {
+      "start": 130.569,
+      "end": 131.187,
+      "text": "the President.",
+      "segment": 26
+    },
+    {
+      "start": 131.459,
+      "end": 132.812,
+      "text": "God bless America.",
+      "segment": 27
+    }
+  ]
+}

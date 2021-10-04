@@ -24,6 +24,7 @@ func _process(_delta):
 	_render_text()
 
 func map_subtitles_to_animation(subtitles_json):
+	current_index = 0
 	subtitles_dict = subtitles_json["timing"]
 
 	var duration = _subtitles_duration()
@@ -108,41 +109,47 @@ func _on_text_started(index : int):
 func _on_text_ended(index : int):
 	emit_signal("text_ended", index)
 
-func _create_upcoming_lines():
-	var index = current_index
+func _generate_segment_bbcode(segment_id):
+	var timing_index = 0
 	
-	# Find the first index of the next segment
-	while 	(index < subtitles_dict.size()) and \
-			(subtitles_dict[index]["segment"] == current_segment_id):
-		index += 1
+	if segment_id == -1:
+		return ""
+	
+	# Find the first index of the segment
+	while 	(timing_index < subtitles_dict.size()) and \
+			(subtitles_dict[timing_index]["segment"] != segment_id):
+		timing_index += 1
+	
+	var line = ""
+	
+	while timing_index < subtitles_dict.size() and \
+		subtitles_dict[timing_index]["segment"] == segment_id:
+		
+		var text_element = subtitles_dict[timing_index]["text"]
+		var formatted_text_element = ""
 
-	# Reached end of text?
-	if index >= subtitles_dict.size():
-		return
+		for i in len(text_element):
+			var c = text_element[i]
+
+			if "censored_intervals" in subtitles_dict[timing_index].keys() and \
+				_is_censored(i, subtitles_dict[timing_index]["censored_intervals"]):
+				formatted_text_element += "[color=#000F00]" + c + "[/color]"
+			elif timing_index < current_index:
+				formatted_text_element +=  "[color=#FF0000]" + c + "[/color]"
+			elif timing_index == current_index and i < last_cursor_position:
+				formatted_text_element +=  "[color=#FF0000]" + c + "[/color]"
+			else:
+				formatted_text_element += c
+
+		line = PoolStringArray([line, formatted_text_element]).join(" ")
+		timing_index += 1
 	
-	for line_index in range(1,3):
-		var line = ""
-		while 	index < subtitles_dict.size() and \
-				subtitles_dict[index]["segment"] == current_segment_id + line_index:
-				
-				var text_element = subtitles_dict[index]["text"]
-				var formatted_text_element = text_element
-				
-				if "censored_intervals" in subtitles_dict[index].keys():
-					formatted_text_element = ""
-					
-					for i in len(text_element):
-						var c = text_element[i]
-						
-						if _is_censored(i, subtitles_dict[index]["censored_intervals"]):
-							formatted_text_element += "[color=#000F00]" + c + "[/color]"
-						else:
-							formatted_text_element += c
-				
-				line = PoolStringArray([line, formatted_text_element]).join(" ")
-				index += 1
-				
-		lines[line_index].bbcode_text = "[center]" + line + "[/center]"
+	return "[center]" + line + "[/center]"
+
+func _create_upcoming_lines():
+	for line_index in range(1, 3):
+		var segment_id = current_segment_id + line_index
+		lines[line_index].bbcode_text = _generate_segment_bbcode(segment_id)
 
 func _is_censored(index, intervals):
 	for interval in intervals:
@@ -171,38 +178,5 @@ func _render_text():
 		_update_current_line()
 
 func _update_current_line():
-	var line = ""
-	var index = max(current_index - 1, 0)
-	
-	# Find first text elment of segment
-	while index >= 0 and subtitles_dict[index]["segment"] == current_segment_id:
-		index -= 1
-	
-	if index < 0 or subtitles_dict[index]["segment"] != current_segment_id:
-		index += 1
-	
-	if subtitles_dict[index]["segment"] != current_segment_id:
-		return
-	
-	while subtitles_dict[index]["segment"] == current_segment_id:
-		var text_element = subtitles_dict[index]["text"]
-		var formatted_text_element = ""
-
-		for i in len(text_element):
-			var c = text_element[i]
-			
-			if "censored_intervals" in subtitles_dict[index].keys() and \
-				_is_censored(i, subtitles_dict[index]["censored_intervals"]):
-				formatted_text_element += "[color=#000F00]" + c + "[/color]"
-			elif index < current_index:
-				formatted_text_element +=  "[color=#FF0000]" + c + "[/color]"
-			elif index == current_index and i < last_cursor_position:
-				formatted_text_element +=  "[color=#FF0000]" + c + "[/color]"
-			else:
-				formatted_text_element += c
-
-		line = PoolStringArray([line, formatted_text_element]).join(" ")
-		index += 1
-	
-	lines[0].bbcode_text = "[center]" + line + "[/center]"
+	lines[0].bbcode_text = _generate_segment_bbcode(current_segment_id)
 
