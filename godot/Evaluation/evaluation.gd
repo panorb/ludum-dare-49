@@ -155,4 +155,4 @@ func _update_penalty_score():
 	for information_name in leaked_information.keys():
 		if "penalty" in leaked_information[information_name]:
 			penalty += leaked_information[information_name]["penalty"]
-	return penalty
+	penalty_score = penalty
