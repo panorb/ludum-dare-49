@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Game/game.gd" type="Script" id=1]
 [ext_resource path="res://Playback/Playback.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Game/CensorButton/CensorButton.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Playback/interactive-playback.gd" type="Script" id=6]
 [ext_resource path="res://Evaluation/Evaluation.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Shared/Fonts/jelle-bold-48.tres" type="DynamicFont" id=8]
 
 [node name="Game" type="Control"]
 anchor_right = 1.0
@@ -47,6 +48,14 @@ value = 1000.0
 mouse_filter = 0
 
 [node name="Evaluation" parent="." instance=ExtResource( 7 )]
+
+[node name="EndingLabel" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 8 )
+text = "WTF ENDING"
+align = 1
+valign = 1
 
 [connection signal="button_down" from="CensorButton" to="." method="_on_CensorButton_button_down"]
 [connection signal="button_up" from="CensorButton" to="." method="_on_CensorButton_button_up"]

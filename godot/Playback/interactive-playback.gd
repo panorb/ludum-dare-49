@@ -12,9 +12,6 @@ func load_character(character_name : String) -> void:
 	var filepath_recording := "res://Recordings/" + character_name + ".wav"
 	self.audio_stream_player.stream = load(filepath_recording)
 
-func _ready():
-	._ready()
-
 func start_censoring():
 	if censoring:
 		return
