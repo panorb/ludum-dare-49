@@ -4,6 +4,7 @@ onready var playback = get_node("Playback")
 onready var repeat_choice = get_node("RepeatChoice")
 onready var censor_button = get_node("CensorButton")
 onready var energy_meter = get_node("EnergyMeter")
+onready var evaluation = get_node("Evaluation")
 
 export(int) var energy_regeneration_multiplier = 520
 export(int) var energy_depletion_multiplier = 140
@@ -23,7 +24,7 @@ func _process(delta):
 		energy_meter.value -= energy_regeneration_multiplier * delta
 		
 		if energy_meter.value == 0:
-			control_panel.stop_censoring()
+			playback.stop_censoring()
 	else:
 		energy_meter.value += energy_depletion_multiplier * delta
 		
@@ -33,9 +34,9 @@ var censorship_allowed = ["example", "segment-1", "segment-2", "segment-3"]
 
 func _start_chapter(chapter_id):
 	censor_button.enabled = chapter_id in censorship_allowed
-	control_panel.play_chapter(chapter_id)
+	playback.play_chapter(chapter_id)
 
-func _on_chapter_ended(chapter_id):
+func _on_chapter_ended(chapter_id : String, saved_data : Dictionary) -> void:
 	last_ended_chapter = chapter_id
 	
 	# Russischer Anfang
@@ -50,6 +51,8 @@ func _on_chapter_ended(chapter_id):
 	
 	if chapter_id == "example":
 		# TODO: Auswertung hier einfügen
+		evaluation.initialize(saved_data, "russian-officer")
+		evaluation.play_chapter(chapter_id)
 		# TODO: Richtige Voicezeile (Success oder Failure) als Anmerkung des Officers auswählen
 		_start_chapter("example-failure")
 	

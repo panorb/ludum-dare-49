@@ -9,12 +9,24 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Playback",
+"class": "EvaluationPlayback",
+"language": "GDScript",
+"path": "res://Playback/evaluation-playback.gd"
+}, {
+"base": "Playback",
+"class": "InteractivePlayback",
+"language": "GDScript",
+"path": "res://Playback/interactive-playback.gd"
+}, {
 "base": "Node",
 "class": "Playback",
 "language": "GDScript",
 "path": "res://Playback/playback-base.gd"
 } ]
 _global_script_class_icons={
+"EvaluationPlayback": "",
+"InteractivePlayback": "",
 "Playback": ""
 }
 
