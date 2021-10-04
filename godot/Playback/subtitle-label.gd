@@ -2,6 +2,8 @@ extends VBoxContainer
 
 signal text_started
 signal text_ended(elapsed_time)
+signal text_censored_start
+signal text_censored_end
 
 var chapters_dict : Dictionary = {}
 var subtitles_dict : Array = []
@@ -14,6 +16,7 @@ var current_index : int = 0
 var preset_formatting : Dictionary = {}
 var last_cursor_position : int = 0
 var current_chapter : String = ""
+var text_currently_censored : bool = false
 
 onready var animation_player = get_node("AnimationPlayer")
 onready var lines = [get_node("Line1"), get_node("Line2"), get_node("Line3")]
@@ -184,6 +187,14 @@ func _render_text():
 	
 	if new_cursor_position != last_cursor_position:
 		last_cursor_position = new_cursor_position
+		if "censored_intervals" in subtitles_dict[current_index] and _is_censored(last_cursor_position, subtitles_dict[current_index]["censored_intervals"]):
+			if not text_currently_censored:
+				text_currently_censored = true
+				emit_signal("text_censored_start")
+		elif text_currently_censored:
+			text_currently_censored = false
+			emit_signal("text_censored_end")
+		
 		_update_current_line()
 
 func _update_current_line():

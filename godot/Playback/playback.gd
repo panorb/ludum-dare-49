@@ -11,6 +11,8 @@ var last_index : int = -1
 var current_chapter = ""
 var chapter_ended_signal_sended = false
 
+var censoring : bool = false
+
 signal text_ended(timing)
 signal chapter_ended(chapter_id)
 signal information_passed(timing, timings_index)
@@ -24,6 +26,21 @@ func play_chapter(chapter_id : String) -> void:
 	
 	current_chapter = chapter_id
 	chapter_ended_signal_sended = false
+
+func start_censoring():
+	if censoring:
+		return
+	censoring = true
+	self.audio_stream_player.volume_db = -30
+	self.white_noise_player.play()   
+
+func stop_censoring():
+	if not censoring:
+		return
+	censoring = false
+	self.audio_stream_player.volume_db = 0
+	self.white_noise_player.stop()
+	
 
 func _process(_delta):
 	var end_position = 0.0
