@@ -97,9 +97,9 @@ func _was_leaked(information_name):
 		if not information["timings_left"].empty():
 			return false
 		if information["censor_points"] >= information["barrier"]:
-			return false
-		else:
 			return true
+		else:
+			return false
 
 	elif "requires" in information:
 		for requirement in information["requires"]:
