@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Game/game.gd" type="Script" id=1]
 [ext_resource path="res://ControlPanel/ControlPanel.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Game/RepeatChoice/RepeatChoice.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Game/EnergyVisualizer/EnergyVisualizer.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Game/CensorButton/CensorButton.tscn" type="PackedScene" id=5]
 
 [node name="Game" type="Control"]
 anchor_right = 1.0
@@ -13,6 +15,30 @@ __meta__ = {
 }
 
 [node name="ControlPanel" parent="." instance=ExtResource( 2 )]
+
+[node name="CensorButton" parent="." instance=ExtResource( 5 )]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -300.0
+margin_top = -300.0
+margin_right = 300.0
+margin_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="EnergyVisualizer" parent="." instance=ExtResource( 4 )]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -295.0
+margin_top = -415.0
+margin_right = -12.0
+margin_bottom = -12.0
+grow_horizontal = 0
+grow_vertical = 0
 
 [node name="RepeatChoice" parent="." instance=ExtResource( 3 )]
 

@@ -4,6 +4,7 @@ onready var control_panel = get_node("ControlPanel")
 onready var repeat_choice = get_node("RepeatChoice")
 
 var last_ended_chapter := ""
+var remaining_energy := 100
 
 func _ready():
 	control_panel.load_character("russian-officer")
