@@ -11,6 +11,9 @@ func _ready():
 	playback.connect("information_passed", self, "_on_information_passed")
 
 func initialize(data):
+	# FIXME Is the character name correct?
+	playback.initialize(data, "russian-officer")
+	
 	# Add all information
 	for information_name in data["information"].keys():
 		var information = data["information"][information_name]
@@ -84,7 +87,7 @@ func _was_leaked(information_name):
 			if requirement in available_information or requirement in hidden_information:
 				return false
 
-		return true 
+		return true
 	
 func _get_censor_points(timing):
 	if not "censored_intervals" in timing:

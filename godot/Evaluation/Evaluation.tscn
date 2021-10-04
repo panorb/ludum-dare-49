@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Evaluation/evaluation.gd" type="Script" id=1]
 [ext_resource path="res://Playback/Playback.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Playback/evaluation-playback.gd" type="Script" id=3]
 
 [node name="Evaluation" type="Control"]
 anchor_right = 1.0
@@ -12,6 +13,7 @@ __meta__ = {
 }
 
 [node name="Playback" parent="." instance=ExtResource( 2 )]
+script = ExtResource( 3 )
 
 [node name="LeakedInformationLabel" type="RichTextLabel" parent="."]
 margin_left = 199.8

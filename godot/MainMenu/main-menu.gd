@@ -1,7 +1,6 @@
 extends VBoxContainer
 
 onready var animation_player = get_node("AnimationPlayer")
-
 onready var quit_button = get_node("QuitButton")
 
 # Called when the node enters the scene tree for the first time.

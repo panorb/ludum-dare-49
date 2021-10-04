@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Game/game.gd" type="Script" id=1]
 [ext_resource path="res://Playback/Playback.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Game/RepeatChoice/RepeatChoice.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Game/EnergyMeter/EnergyMeter.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Game/CensorButton/CensorButton.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Playback/interactive-playback.gd" type="Script" id=6]
+[ext_resource path="res://Evaluation/Evaluation.tscn" type="PackedScene" id=7]
 
 [node name="Game" type="Control"]
 anchor_right = 1.0
@@ -15,6 +17,7 @@ __meta__ = {
 }
 
 [node name="Playback" parent="." instance=ExtResource( 2 )]
+script = ExtResource( 6 )
 
 [node name="CensorButton" parent="." instance=ExtResource( 5 )]
 anchor_left = 0.5
@@ -42,6 +45,8 @@ value = 1000.0
 
 [node name="RepeatChoice" parent="." instance=ExtResource( 3 )]
 mouse_filter = 0
+
+[node name="Evaluation" parent="." instance=ExtResource( 7 )]
 
 [connection signal="button_down" from="CensorButton" to="." method="_on_CensorButton_button_down"]
 [connection signal="button_up" from="CensorButton" to="." method="_on_CensorButton_button_up"]
