@@ -20,3 +20,7 @@ func _on_QuitButton_pressed():
 
 func _on_StartButton_pressed():
 	emit_signal("change_scene", "Game")
+
+
+func _on_CheckBox_toggled(button_pressed):
+	Globals.skip_introduction = button_pressed

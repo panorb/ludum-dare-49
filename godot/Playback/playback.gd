@@ -32,20 +32,20 @@ func start_censoring():
 		return
 	censoring = true
 	self.audio_stream_player.volume_db = -30
-	self.white_noise_player.play()   
+	# self.white_noise_player.play()   
 
 func stop_censoring():
 	if not censoring:
 		return
 	censoring = false
 	self.audio_stream_player.volume_db = 0
-	self.white_noise_player.stop()
+	# self.white_noise_player.stop()
 	
 
 func _process(_delta):
 	var end_position = 0.0
 	
-	if current_chapter:
+	if current_chapter and current_chapter in subtitles["chapter"]:
 		end_position = subtitles["chapter"][current_chapter]["end"]
 
 	if audio_stream_player.get_playback_position() >= end_position:
@@ -57,10 +57,17 @@ func _process(_delta):
 		if not chapter_ended_signal_sended:
 			chapter_ended_signal_sended = true
 			emit_signal("chapter_ended", current_chapter, subtitles)
+	
+	if not censoring and white_noise_player.playing:
+		white_noise_player.stop()
+	
+	if censoring and not white_noise_player.playing:
+		white_noise_player.play()
 
 func _ready():
 	subtitles_container.connect("text_started", self, "_on_text_started")
 	subtitles_container.connect("text_ended", self, "_on_text_ended")
+
 
 func _on_text_started(index):
 	subtitles_container.visible = true

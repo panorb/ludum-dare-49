@@ -8,6 +8,7 @@ onready var energy_meter = get_node("EnergyMeter")
 onready var evaluation = get_node("VBoxContainer/Evaluation")
 onready var ending_screen = get_node("EndingScreen")
 onready var leaked_info_display = get_node("LeakedInfoDisplay")
+onready var transition = get_node("Transition")
 
 export(int) var energy_regeneration_multiplier = 170
 export(int) var energy_depletion_multiplier = 520
@@ -18,7 +19,11 @@ var censor_button_down = false
 func _ready():
 	playback.load_character("russian-officer")
 	censor_button.enabled = false
-	_start_chapter("beginning")
+	
+	if Globals.skip_introduction:
+		_start_chapter("skipped-intro")
+	else:
+		_start_chapter("beginning")
 	
 	playback.connect("chapter_ended", self, "_on_chapter_playback_ended")
 	evaluation.connect("evaluation_finished", self, "_on_chapter_evaluation_finished")
@@ -56,6 +61,9 @@ func _start_chapter(chapter_id):
 	
 	if chapter_id in censorship_allowed:
 		section_label.text = "SHOWTIME"
+		
+		transition.start("SHOWTIME", "Press and hold down the button to censor!", true)
+		yield(transition, "finished")
 	elif "ending" in chapter_id:
 		section_label.text = "ENDING"
 	else:
@@ -75,6 +83,9 @@ func _start_evaluation(chapter_id : String, saved_data : Dictionary, character_n
 	leaked_info_display.fade_in()
 	
 	censor_button.enabled = false
+	
+	transition.start("EVALUATION", "Time to see how you did...", false)
+	yield(transition, "finished")
 	
 	evaluation.initialize(saved_data, character_name)
 	evaluation.play_chapter(chapter_id)
@@ -105,7 +116,7 @@ func _on_chapter_playback_ended(chapter_id : String, saved_data : Dictionary) ->
 	if chapter_id == "example-failure":
 		repeat_choice.present()
 	
-	if chapter_id in ["example-success", "good-luck"]:
+	if chapter_id in ["example-success", "skipped-intro", "good-luck"]:
 		# Übergang zum Amerikaner
 		playback.load_character("american-spy")
 		_start_chapter("segment-1")
@@ -174,8 +185,12 @@ func _on_RepeatChoice_repeat_selected():
 
 func _on_CensorButton_button_down():
 	censor_button_down = true
-	playback.start_censoring()
-
+	
+	if energy_meter.value >= 70:
+		energy_meter.value -= 15
+		playback.start_censoring()
+	else:
+		get_node("Sounds/BatteryEmpty").play()
 
 func _on_CensorButton_button_up():
 	censor_button_down = false

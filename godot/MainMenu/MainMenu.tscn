@@ -1,8 +1,35 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Shared/Fonts/jelle-bold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://MainMenu/main-menu.gd" type="Script" id=2]
 [ext_resource path="res://Shared/Fonts/jelle-bold-48.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Shared/Fonts/jelle-bold-26.tres" type="DynamicFont" id=4]
+[ext_resource path="res://MainMenu/ussr-flag.png" type="Texture" id=5]
+
+[sub_resource type="Shader" id=4]
+code = "shader_type canvas_item;
+
+uniform float speed = 2.0;
+uniform float frequency_y = 5.0;
+uniform float frequency_x = 5.0;
+uniform float amplitude_y = 50.0;
+uniform float amplitude_x = 25.0;
+uniform float inclination = 50.0;
+
+void vertex() {
+	VERTEX.y += sin((UV.x - TIME * speed) * frequency_y) * amplitude_y * UV.x;
+	VERTEX.x += cos((UV.y - TIME * speed) * frequency_x) * amplitude_x * UV.x;
+	VERTEX.x -= UV.y * inclination;
+}"
+
+[sub_resource type="ShaderMaterial" id=5]
+shader = SubResource( 4 )
+shader_param/speed = 1.2
+shader_param/frequency_y = 0.7
+shader_param/frequency_x = 2.0
+shader_param/amplitude_y = 24.0
+shader_param/amplitude_x = 5.0
+shader_param/inclination = 10.0
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
@@ -25,7 +52,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ "[center]Russia Connect[color=red]_[/color][/center]", "[center]Russia Connect_[/center]" ]
+"values": [ "[center]Russian Connect_[/center]", "[center]Russian Connect[color=red]_[/color][/center]" ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -56,28 +83,49 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Title" type="RichTextLabel" parent="."]
-margin_top = 225.0
+[node name="Flag" type="TextureRect" parent="."]
+material = SubResource( 5 )
+margin_top = 112.0
 margin_right = 1040.0
-margin_bottom = 305.0
+margin_bottom = 237.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource( 5 )
+stretch_mode = 4
+
+[node name="Title" type="RichTextLabel" parent="."]
+margin_top = 267.0
+margin_right = 1040.0
+margin_bottom = 347.0
 custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
-bbcode_text = "[center]Russia Connect[color=red]_[/color][/center]"
-text = "Russia Connect_"
+bbcode_text = "[center]Russian Connect[color=red]_[/color][/center]"
+visible_characters = 0
+percent_visible = 0.0
+text = "Russian Connect_"
 fit_content_height = true
 
-[node name="StartButton" type="Button" parent="."]
-margin_top = 335.0
+[node name="CheckBox" type="CheckBox" parent="."]
+margin_top = 377.0
 margin_right = 1040.0
-margin_bottom = 400.0
+margin_bottom = 417.0
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = ExtResource( 4 )
+text = "Skip Introduction"
+
+[node name="StartButton" type="Button" parent="."]
+margin_top = 447.0
+margin_right = 1040.0
+margin_bottom = 512.0
 grow_horizontal = 2
 custom_fonts/font = ExtResource( 3 )
 text = "Start"
 
 [node name="QuitButton" type="Button" parent="."]
-margin_top = 430.0
+margin_top = 542.0
 margin_right = 1040.0
-margin_bottom = 495.0
+margin_bottom = 607.0
 custom_fonts/font = ExtResource( 3 )
 text = "Quit"
 
@@ -85,6 +133,7 @@ text = "Quit"
 anims/idle = SubResource( 2 )
 anims/intro = SubResource( 3 )
 
+[connection signal="toggled" from="CheckBox" to="." method="_on_CheckBox_toggled"]
 [connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
 [connection signal="pressed" from="QuitButton" to="." method="_on_QuitButton_pressed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

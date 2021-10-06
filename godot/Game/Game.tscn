@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Game/game.gd" type="Script" id=1]
 [ext_resource path="res://Playback/Playback.tscn" type="PackedScene" id=2]
@@ -12,6 +12,8 @@
 [ext_resource path="res://Game/LeakedInfoDisplay/LeakedInfoDisplay.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Shared/Sounds/battery-charging.wav" type="AudioStream" id=11]
 [ext_resource path="res://Shared/Sounds/battery-full.wav" type="AudioStream" id=12]
+[ext_resource path="res://Game/Transition/Transition.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Shared/Sounds/battery-empty.wav" type="AudioStream" id=14]
 
 [sub_resource type="DynamicFont" id=1]
 size = 28
@@ -87,7 +89,10 @@ value = 1000.0
 [node name="LeakedInfoDisplay" parent="." instance=ExtResource( 10 )]
 
 [node name="RepeatChoice" parent="." instance=ExtResource( 3 )]
-mouse_filter = 0
+
+[node name="Transition" parent="." instance=ExtResource( 13 )]
+visible = false
+mouse_filter = 2
 
 [node name="EndingScreen" parent="." instance=ExtResource( 8 )]
 
@@ -98,6 +103,9 @@ stream = ExtResource( 11 )
 
 [node name="BatteryFull" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource( 12 )
+
+[node name="BatteryEmpty" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 14 )
 
 [connection signal="button_down" from="CensorButton" to="." method="_on_CensorButton_button_down"]
 [connection signal="button_up" from="CensorButton" to="." method="_on_CensorButton_button_up"]

@@ -12,14 +12,14 @@ func load_character(character_name : String) -> void:
 
 func start_censoring():
 	.start_censoring()
-	if self.last_index < 0:
+	if self.last_index < 0 or self.last_index >= len(self.subtitles["timing"]):
 		return
 	if self.subtitles["timing"][self.last_index]["status"] == "running":
 		_set_start_cursor(self.last_index)	
 
 func stop_censoring():
 	.stop_censoring()
-	if self.last_index < 0:
+	if self.last_index < 0 or self.last_index >= len(self.subtitles["timing"]):
 		return
 	if self.subtitles["timing"][self.last_index]["status"] == "running":
 		_set_end_cursor(self.last_index)

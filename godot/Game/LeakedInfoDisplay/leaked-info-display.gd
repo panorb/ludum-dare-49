@@ -20,7 +20,6 @@ func _on_text_set(val):
 	
 	if text:
 		bling_player.play()
-	tween.interpolate_property(leaked_info_label, "custom_colors/default_color", Color.white, Color.aqua, 0.4, Tween.TRANS_EXPO)
 	tween.interpolate_property(leaked_info_label, "custom_colors/default_color", Color.aqua, Color.white, 0.4, Tween.TRANS_EXPO)
 	tween.start()
 

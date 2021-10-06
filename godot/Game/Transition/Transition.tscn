@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Shared/Fonts/jelle-bold-48.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Shared/Fonts/jelle-bold-32.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Game/Transition/transition.gd" type="Script" id=3]
+[ext_resource path="res://Shared/Sounds/info-updated.wav" type="AudioStream" id=4]
+
+[node name="Transition" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+script = ExtResource( 3 )
+
+[node name="Background" type="ColorRect" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SectionHeading" type="VBoxContainer" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="SectionHeading"]
+margin_top = 308.0
+margin_right = 1280.0
+margin_bottom = 367.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "SHOWTIME"
+align = 1
+
+[node name="Description" type="Label" parent="SectionHeading"]
+margin_top = 371.0
+margin_right = 1280.0
+margin_bottom = 411.0
+custom_fonts/font = ExtResource( 2 )
+text = "Censor by holding down the censor button (SPACE)"
+align = 1
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="NoticeMePlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )

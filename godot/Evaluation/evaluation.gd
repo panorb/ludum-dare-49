@@ -127,11 +127,13 @@ func _get_censor_points(timing):
 
 func _leak_information(information_name):
 	var information = available_information[information_name]
+# warning-ignore:return_value_discarded
 	available_information.erase(information_name)
 	leaked_information[information_name] = information
 	
 	if "replaces" in information:
 		for information_replaced in information["replaces"]:
+# warning-ignore:return_value_discarded
 			leaked_information.erase(information_replaced)
 
 	_update_penalty_score()
@@ -139,6 +141,7 @@ func _leak_information(information_name):
 
 func _hide_information(information_name):
 	var information = available_information[information_name]
+# warning-ignore:return_value_discarded
 	available_information.erase(information_name)
 	hidden_information[information_name] = information
 
